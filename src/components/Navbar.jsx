@@ -24,8 +24,8 @@ export default function Navbar() {
 
   useEffect(() => { setMobileOpen(false) }, [location])
 
-  const navBg = scrolled
-    ? 'bg-forest/95 backdrop-blur-md shadow-lifted py-3'
+const navBg = scrolled
+  ? 'bg-forest/95 backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.25)] py-3'
     : isHome
       ? 'bg-transparent py-5'
       : 'bg-forest py-4'
@@ -40,11 +40,14 @@ export default function Navbar() {
       <div className="container-site flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="flex items-center justify-center w-9 h-9 border border-brand-400/60 rounded-sm group-hover:border-brand-300 transition-colors">
+         <motion.div
+  whileHover={{ scale: 1.05 }}
+  className="flex items-center justify-center w-9 h-9 border border-brand-400/60 rounded-sm group-hover:border-brand-300 transition-colors"
+>
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
               <path d="M9 2L2 8v8h5v-5h4v5h5V8L9 2z" fill="none" stroke="#74b357" strokeWidth="1.5" strokeLinejoin="round"/>
             </svg>
-          </div>
+          </motion.div>
           <div>
             <span className="font-display text-xl font-semibold text-cream tracking-wide">LA Infra</span>
             <span className="hidden sm:block text-[9px] text-brand-400 tracking-[0.2em] uppercase font-body -mt-0.5">Ethical Real Estate</span>
@@ -52,34 +55,42 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
-          {navLinks.map(({ label, to }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={to === '/'}
-              className={({ isActive }) =>
-                `relative px-4 py-2 font-body text-sm tracking-wide transition-colors duration-200
-                 ${isActive ? 'text-brand-300' : 'text-cream/80 hover:text-cream'}`
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  {label}
-                  {isActive && (
-                    <motion.span
-                      layoutId="nav-indicator"
-                      className="absolute bottom-0 left-4 right-4 h-[1.5px] bg-brand-400"
-                    />
-                  )}
-                </>
-              )}
-            </NavLink>
-          ))}
-          <Link to="/contact" className="ml-4 btn-primary text-xs">
-            Get in Touch
-          </Link>
-        </nav>
+       <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
+  {navLinks.map(({ label, to }) => (
+    <NavLink
+      key={to}
+      to={to}
+      end={to === '/'}
+      className={({ isActive }) =>
+        `relative px-4 py-2 font-body text-sm tracking-wide transition-all duration-300
+        ${isActive
+          ? 'text-brand-300'
+          : 'text-cream/80 hover:text-cream'}`
+      }
+    >
+      {({ isActive }) => (
+        <>
+          {label}
+
+          {isActive && (
+            <motion.span
+              layoutId="nav-indicator"
+              transition={{ type: "spring", stiffness: 500, damping: 35 }}
+              className="absolute bottom-0 left-4 right-4 h-[1.5px] bg-brand-400"
+            />
+          )}
+        </>
+      )}
+    </NavLink>
+  ))}
+
+  <Link
+    to="/contact"
+    className="ml-4 btn-primary text-xs hover:scale-[1.04] transition-transform"
+  >
+    Get in Touch
+  </Link>
+</nav>
 
         {/* Mobile hamburger */}
         <button
