@@ -35,7 +35,7 @@ generations.
 <motion.img
 src={farmlandImage}
 alt="Sustainable farmland investment"
-className="rounded-lg shadow-2xl w-full object-cover"
+className="rounded-lg shadow-2xl w-full object-cover hover:scale-105 transition duration-700"
 initial={{ opacity:0, scale:0.9 }}
 whileInView={{ opacity:1, scale:1 }}
 transition={{ duration:0.9 }}
