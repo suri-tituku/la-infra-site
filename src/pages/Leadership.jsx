@@ -12,22 +12,25 @@ import { useLocation } from "react-router-dom";
 export default function Leadership() {
   const location = useLocation();
   const [activeId, setActiveId] = useState(null);
+  const [expanded, setExpanded] = useState(false);
   const [active, setActive] = useState(null);
+  const [activeGroup, setActiveGroup] = useState("executive");
+
   useEffect(() => {
     if (active) {
       const el = document.querySelector(".premium-scroll");
       if (el) el.scrollTo({ top: 0, behavior: "smooth" });
     }
   }, [active]);
-  const leaders = [
+  const leaderCards = [
     {
       id: "chairman",
       name: "Kolli Sambireddy (K. S. Reddy)",
       role: "Chairman",
       img: chairmanImg,
-      short:
-        "Agriculture-rooted land strategist with decades of experience in land aggregation and responsible development.",
-      full: `Born into an agricultural family, Kolli Sambireddy has been closely connected to farming and land stewardship for most of his life and has practiced organic farming for more than four decades.
+      content: `Agriculture-rooted land strategist with decades of experience in land aggregation and responsible development.
+      
+      Born into an agricultural family, Kolli Sambireddy has been closely connected to farming and land stewardship for most of his life and has practiced organic farming for more than four decades.
 
 Over the years, he has successfully aggregated over 5,000 acres of land and supported several prominent real estate developers across Telangana, Andhra Pradesh, and Karnataka.
 
@@ -37,12 +40,12 @@ As Chairman of LA Infra, he provides strategic guidance to ensure that the compa
     },
     {
       id: "md",
-      name: "K. Dayakar Reddy",
+      name: "K. Dayakar Reddy (B.A., LL.B.)",
       role: "Founder & Managing Director",
       img: mdImg,
-      short:
-        "Legal-driven real estate leader focused on transparency, due diligence, and ethical land development.",
-      full: `K. Dayakar Reddy founded LA Infra with a clear commitment to bringing legal clarity and transparency into land development.
+      content: `Legal-driven real estate leader focused on transparency, due diligence, and ethical land development.
+
+      K. Dayakar Reddy founded LA Infra with a clear commitment to bringing legal clarity and transparency into land development.
 
 With a background in law, he specializes in real estate legal due diligence, ensuring that land transactions are supported by proper documentation and verified ownership.
 
@@ -52,12 +55,12 @@ He strongly believes that long-term success in real estate is built on honesty, 
     },
     {
       id: "director",
-      name: "Anirudh Reddy Solipuram",
+      name: "Anirudh Reddy Solipuram (S.A.R., MS USA)",
       role: "Director",
       img: directorImg,
-      short:
-        "Eco-conscious entrepreneur bringing global sustainability insights to nature-aligned land development.",
-      full: `Anirudh Reddy Solipuram brings a global perspective to sustainable development and responsible land use.
+      content: `Eco-conscious entrepreneur bringing global sustainability insights to nature-aligned land development.
+
+      Anirudh Reddy Solipuram brings a global perspective to sustainable development and responsible land use.
 
 Holding a Master’s degree from the United States, he combines technical knowledge with a strong interest in ecology, organic farming, and sustainable architecture.
 
@@ -67,8 +70,43 @@ Alongside his work in land development, he is actively engaged in the education 
 
 At LA Infra, he contributes to the vision of creating developments that integrate nature, sustainability, and responsible land stewardship.`,
     },
-  ];
+    {
+      id: "cfo",
+      name: "Sanghamitra Reddy K (B.A., LL.B.)",
+      role: "Co-Founder & CFO",
+      img: cofcfo,
+      content: `Financial strategist and legal professional guiding governance, compliance, and capital planning.
+      
+      Sanghamitra serves as the Co-Founder and Chief Financial Officer of LA Infra, contributing both legal expertise and financial leadership to the organization.
 
+With a background in law, she plays an important role in overseeing financial strategy, capital planning, regulatory compliance, and investor relations.
+
+Her work helps ensure that the company’s developments are supported by strong financial discipline and sound legal frameworks, enabling projects to remain sustainable and transparent.`,
+    },
+    {
+      id: "coo",
+      name: "D. Venkat Reddy",
+      role: "Chief Operating Officer",
+      img: null,
+      content: `Operations leader responsible for project execution and development efficiency.
+
+He oversees operational execution across LA Infra projects ensuring discipline, efficiency, and quality standards.
+
+His role focuses on site supervision, resource coordination, and structured workflows for seamless project implementation.`,
+    },
+
+    {
+      id: "advisor",
+      name: "Bramashree Prashanth Sharma",
+      role: "Spiritual & Vastu Advisor",
+      img: null,
+      content: `Spiritual guide and Vastu advisor supporting harmonious land development.
+
+He provides guidance through deep knowledge of Vastu Shastra and traditional systems.
+
+His advisory ensures developments combine modern planning with traditional wisdom to create balanced and positive environments.`,
+    },
+  ];
   const highlightStyle = {
     boxShadow: "0 0 0 6px rgba(251,191,36,0.35)",
     scale: 1.02,
@@ -77,6 +115,19 @@ At LA Infra, he contributes to the vision of creating developments that integrat
   const normalStyle = {
     boxShadow: "0 0 0 0 rgba(0,0,0,0)",
     scale: 1,
+  };
+
+  const currentIndex = leaderCards.findIndex((l) => l.id === active?.id);
+
+  const goNext = () => {
+    const nextIndex = (currentIndex + 1) % leaderCards.length;
+    setActive(leaderCards[nextIndex]);
+  };
+
+  const goPrev = () => {
+    const prevIndex =
+      (currentIndex - 1 + leaderCards.length) % leaderCards.length;
+    setActive(leaderCards[prevIndex]);
   };
 
   useEffect(() => {
@@ -103,6 +154,17 @@ At LA Infra, he contributes to the vision of creating developments that integrat
       }
     }
   }, [location]);
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") setActive(null);
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+    };
+
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [active]);
 
   return (
     <>
@@ -176,80 +238,106 @@ At LA Infra, he contributes to the vision of creating developments that integrat
       <section className="py-16 bg-cream overflow-hidden">
         <div className="container-site max-w-7xl space-y-24">
           {/* ================= CHAIRMAN MESSAGE ================= */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
-            className="grid md:grid-cols-2 gap-20 items-center"
-          >
-            {/* Image */}
-            <div className="relative">
-              <div className="absolute -inset-6 bg-gradient-to-tr from-amber-200/30 via-transparent to-amber-400/20 blur-2xl" />
-              <div className="relative rounded-[18px] overflow-hidden shadow-2xl">
-                <img
-                  src={chairmanImg}
-                  alt="Chairman LA Infra"
-                  className="w-full h-[660px] object-cover"
-                />
-              </div>
-            </div>
+          {(() => {
+            const [expanded, setExpanded] = useState(false);
+            return (
+              <motion.div
+                id="chairman" // ✅ ADD THIS
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.9 }}
+                className="grid md:grid-cols-2 gap-20 items-start"
+              >
+                {/* Image */}
+                <div className="overflow-hidden rounded-sm shadow-md">
+                  {/* Image */}
+                  <div className="relative rounded-[18px] overflow-hidden shadow-2xl">
+                    <img
+                      src={chairmanImg}
+                      alt="Kolli Sambireddy"
+                      className="w-full h-[600px] object-cover"
+                    />
+                  </div>
+                </div>
 
-            {/* Content */}
-            <div>
-              <p className="text-brand-700 uppercase tracking-[0.3em] text-xl mb-4">
-                Chairman’s Message
-              </p>
+                {/* Content */}
+                <div>
+                  <p className="text-brand-700 uppercase tracking-[0.3em] text-xl mb-4">
+                    Chairman’s Message
+                  </p>
 
-              <div className="space-y-6 text-lg leading-[2] text-forest/80 max-h-[520px] overflow-y-auto pr-4 custom-green-scroll">
-                <p>
-                  Land has always been more than a resource — it is the
-                  foundation upon which livelihoods, communities, and
-                  generations are built.
-                </p>
+                  <div className="relative">
+                    <motion.div
+                      initial={false}
+                      animate={{ height: expanded ? "auto" : 400 }}
+                      transition={{ duration: 0.6 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="space-y-6 text-lg leading-[2] text-forest/80">
+                        <p>
+                          Land has always been more than a resource — it is the
+                          foundation upon which livelihoods, communities, and
+                          generations are built.
+                        </p>
+                        <p>
+                          Having grown up in an agricultural family and spent
+                          decades working closely with the land, I have come to
+                          deeply respect its value and responsibility. For over
+                          forty years, my journey in agriculture and land
+                          development has taught me that true success with land
+                          comes from patience, discipline, and integrity.
+                        </p>
+                        <p>
+                          At LA Infra, we believe that land should be developed
+                          thoughtfully and responsibly. Every project we
+                          undertake is guided by the principle that development
+                          must respect the land, protect the interests of
+                          investors, and contribute positively to the
+                          surrounding environment and communities.
+                        </p>
+                        <p>
+                          Over the years, we have had the opportunity to
+                          aggregate and work with thousands of acres of land
+                          across multiple regions. This experience has
+                          strengthened our commitment to ensuring that every
+                          development stands on legal clarity, ethical
+                          practices, and long-term value.
+                        </p>
+                        <p>
+                          Our goal is not simply to develop land, but to create
+                          opportunities that benefit both present and future
+                          generations. By combining agricultural wisdom with
+                          responsible development practices, LA Infra continues
+                          to move forward with a clear focus on trust,
+                          sustainability, and lasting value.
+                        </p>
+                      </div>
+                    </motion.div>
 
-                <p>
-                  Having grown up in an agricultural family and spent decades
-                  working closely with the land, I have come to deeply respect
-                  its value and responsibility. For over forty years, my journey
-                  in agriculture and land development has taught me that true
-                  success with land comes from patience, discipline, and
-                  integrity.
-                </p>
+                    {!expanded && (
+                      <div className="pointer-events-none absolute bottom-0 left-0 w-full h-28 bg-gradient-to-t from-cream via-cream/80 to-transparent" />
+                    )}
+                  </div>
 
-                <p>
-                  At LA Infra, we believe that land should be developed
-                  thoughtfully and responsibly. Every project we undertake is
-                  guided by the principle that development must respect the
-                  land, protect the interests of investors, and contribute
-                  positively to the surrounding environment and communities.
-                </p>
+                  <button
+                    onClick={() => setExpanded(!expanded)}
+                    className="mt-6 flex items-center gap-2 text-brand-700 font-semibold tracking-wide hover:text-brand-900 transition"
+                  >
+                    {expanded ? "Read Less" : "Read More"}
+                    {expanded ? "▲" : "▼"}
+                  </button>
 
-                <p>
-                  Over the years, we have had the opportunity to aggregate and
-                  work with thousands of acres of land across multiple regions.
-                  This experience has strengthened our commitment to ensuring
-                  that every development stands on legal clarity, ethical
-                  practices, and long-term value.
-                </p>
-
-                <p>
-                  Our goal is not simply to develop land, but to create
-                  opportunities that benefit both present and future
-                  generations. By combining agricultural wisdom with responsible
-                  development practices, LA Infra continues to move forward with
-                  a clear focus on trust, sustainability, and lasting value.
-                </p>
-              </div>
-
-              <div className="mt-12">
-                <p className="font-display text-2xl text-forest">
-                  Kolli Sambireddy
-                </p>
-                <p className="text-brand-600">Chairman, LA Infra LLP</p>
-              </div>
-            </div>
-          </motion.div>
+                  <div className="mt-12">
+                    <p className="font-display text-2xl text-forest">
+                      Kolli Sambireddy
+                    </p>
+                    <p className="text-brand-600">Chairman, LA Infra LLP</p>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })()}
 
           {/* ================= GOLD DIVIDER ================= */}
           <div className="flex items-center justify-center gap-6">
@@ -262,470 +350,264 @@ At LA Infra, he contributes to the vision of creating developments that integrat
           </div>
 
           {/* ================= FOUNDER MESSAGE ================= */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9 }}
-            className="grid md:grid-cols-2 gap-20 items-center"
-          >
-            {/* Content */}
-            <div className="order-2 md:order-1">
-              <p className="text-brand-700 uppercase tracking-[0.3em] text-xl mb-4">
-                Founder’s Message
-              </p>
-              <div className="space-y-6 text-lg leading-[2] text-forest/80 max-h-[520px] overflow-y-auto pr-4 custom-green-scroll">
-                <p>
-                  At LA Infra, our journey is built on a simple but powerful
-                  belief — land development must be guided by integrity,
-                  responsibility, and long-term vision.
-                </p>
+          {(() => {
+            const [expanded, setExpanded] = useState(false);
+            return (
+              <motion.div
+                id="md" // ✅ ADD
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.9 }}
+                className="grid md:grid-cols-2 gap-20 items-start"
+              >
+                {/* Content */}
+                <div className="order-2 md:order-1">
+                  <p className="text-brand-700 uppercase tracking-[0.3em] text-xl mb-4">
+                    Founder’s Message
+                  </p>
 
-                <p>
-                  For many people, land represents more than an investment. It
-                  represents security, opportunity, and a legacy that can be
-                  passed on to future generations. Recognizing this
-                  responsibility, we established LA Infra with a commitment to
-                  approach land development with legal clarity, ethical
-                  practices, and disciplined planning.
-                </p>
+                  <div className="relative">
+                    <motion.div
+                      initial={false}
+                      animate={{ height: expanded ? "auto" : 400 }}
+                      transition={{ duration: 0.6 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="space-y-6 text-lg leading-[2] text-forest/80">
+                        <p>
+                          At LA Infra, our journey is built on a simple but
+                          powerful belief — land development must be guided by
+                          integrity, responsibility, and long-term vision.
+                        </p>
+                        <p>
+                          For many people, land represents more than an
+                          investment. It represents security, opportunity, and a
+                          legacy that can be passed on to future generations.
+                          Recognizing this responsibility, we established LA
+                          Infra with a commitment to approach land development
+                          with legal clarity, ethical practices, and disciplined
+                          planning.
+                        </p>
+                        <p>
+                          In an industry often driven by speculation and
+                          short-term gains, our philosophy is different. We
+                          believe that real value is created when development
+                          respects the land, protects the interests of
+                          investors, and contributes positively to the
+                          communities around it.
+                        </p>
+                        <p>
+                          Every project undertaken by LA Infra reflects our core
+                          principles — secure land ownership, responsible
+                          development, ecological awareness, and transparent
+                          processes. These values guide every decision we make
+                          and define the foundation upon which the organization
+                          continues to grow.
+                        </p>
+                        <p>
+                          Our vision is not only to develop land, but to build a
+                          trusted ecosystem where investors, communities, and
+                          nature coexist in a balanced and sustainable manner.
+                        </p>
+                        <p>
+                          As we move forward, our commitment remains clear: to
+                          create developments that stand on trust,
+                          responsibility, and long-term value for generations to
+                          come.
+                        </p>
+                      </div>
+                    </motion.div>
 
-                <p>
-                  In an industry often driven by speculation and short-term
-                  gains, our philosophy is different. We believe that real value
-                  is created when development respects the land, protects the
-                  interests of investors, and contributes positively to the
-                  communities around it.
-                </p>
+                    {!expanded && (
+                      <div className="pointer-events-none absolute bottom-0 left-0 w-full h-28 bg-gradient-to-t from-cream via-cream/80 to-transparent" />
+                    )}
+                  </div>
 
-                <p>
-                  Every project undertaken by LA Infra reflects our core
-                  principles — secure land ownership, responsible development,
-                  ecological awareness, and transparent processes. These values
-                  guide every decision we make and define the foundation upon
-                  which the organization continues to grow.
-                </p>
+                  <button
+                    onClick={() => setExpanded(!expanded)}
+                    className="mt-6 flex items-center gap-2 text-brand-700 font-semibold tracking-wide hover:text-brand-900 transition"
+                  >
+                    {expanded ? "Read Less" : "Read More"}
+                    {expanded ? "▲" : "▼"}
+                  </button>
 
-                <p>
-                  Our vision is not only to develop land, but to build a trusted
-                  ecosystem where investors, communities, and nature coexist in
-                  a balanced and sustainable manner.
-                </p>
+                  <div className="mt-12">
+                    <p className="font-display text-2xl text-forest">
+                      K. Dayakar Reddy
+                    </p>
+                    <p className="text-brand-600">
+                      Founder & Managing Partner, LA Infra LLP
+                    </p>
+                  </div>
+                </div>
 
-                <p>
-                  As we move forward, our commitment remains clear: to create
-                  developments that stand on trust, responsibility, and
-                  long-term value for generations to come.
-                </p>
-              </div>
-
-              <div className="mt-12">
-                <p className="font-display text-2xl text-forest">
-                  K. Dayakar Reddy
-                </p>
-                <p className="text-brand-600">
-                  Founder & Managing Partner, LA Infra LLP
-                </p>
-              </div>
-            </div>
-
-            {/* Image */}
-            <div className="order-1 md:order-2 relative">
-              <div className="absolute -inset-6 bg-gradient-to-tr from-amber-200/30 via-transparent to-amber-400/20 blur-2xl" />
-              <div className="relative rounded-[18px] overflow-hidden shadow-2xl">
-                <img
-                  src={mdImg}
-                  alt="Founder LA Infra"
-                  className="w-full h-[660px] object-cover"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      {/* ===== Gold Ornament Divider ===== */}
-      <div className="flex items-center justify-center gap-6 my-10">
-        <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-
-        <div className="relative flex items-center justify-center">
-          <div className="w-3 h-3 rotate-45 border border-amber-400" />
-          <div className="absolute w-1.5 h-1.5 rotate-45 bg-amber-400" />
-        </div>
-
-        <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-      </div>
-
-      {/* LEADERS — EXECUTIVE ORDER LAYOUT */}
-      <section className="py-12 bg-cream">
-        <div className="container-site max-w-7xl space-y-12">
-          {/* ================= CHAIRMAN ================= */}
-          <motion.div
-            id="chairman"
-            animate={
-              activeId === "chairman"
-                ? {
-                    boxShadow: "0 0 0 6px rgba(251,191,36,0.35)",
-                    scale: 1.02,
-                  }
-                : {
-                    boxShadow: "0 0 0 0 rgba(0,0,0,0)",
-                    scale: 1,
-                  }
-            }
-            transition={{ duration: 0.6 }}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-16 items-center"
-          >
-            <div className="rounded-[14px] overflow-hidden shadow-xl">
-              <img
-                src={chairmanImg}
-                alt="Kolli Sambireddy"
-                className="w-full h-[520px] object-cover"
-              />
-            </div>
-
-            {/* Content */}
-            <div>
-              <p className="text-brand-500 uppercase tracking-[0.25em] text-sm mb-3">
-                Chairman
-              </p>
-
-              <h2 className="font-display text-4xl text-forest mb-4">
-                Kolli Sambireddy (K. S. Reddy)
-              </h2>
-
-              <p className="text-lg text-forest/80 leading-relaxed mb-6">
-                Agriculture-rooted land strategist with decades of experience in
-                land aggregation and responsible development.
-              </p>
-
-              <div className="space-y-5 text-forest/70 leading-[1.4]">
-                <p>
-                  Born into an agricultural family, Kolli Sambireddy has been
-                  closely connected to farming and land stewardship for most of
-                  his life and has practiced organic farming for more than four
-                  decades.
-                </p>
-
-                <p>
-                  Over the years, he has successfully aggregated over 5,000
-                  acres of land and supported several prominent real estate
-                  developers across Telangana, Andhra Pradesh, and Karnataka.
-                </p>
-
-                <p>
-                  Known for his strong work ethic, discipline, and commitment to
-                  ethical practices, he believes that sustainable success in
-                  land development is built through credibility, consistency,
-                  and responsible decision-making.
-                </p>
-
-                <p>
-                  As Chairman of LA Infra, he provides strategic guidance to
-                  ensure that the company’s projects remain aligned with the
-                  principles of ethical land development and long-term value
-                  creation.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* ===== Gold Ornament Divider ===== */}
-          <div className="flex items-center justify-center gap-6 my-5">
-            <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-
-            <div className="relative flex items-center justify-center">
-              <div className="w-3 h-3 rotate-45 border border-amber-400" />
-              <div className="absolute w-1.5 h-1.5 rotate-45 bg-amber-400" />
-            </div>
-
-            <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-          </div>
-
-          {/* ================= FOUNDER & MD ================= */}
-          <motion.div
-            id="md"
-            animate={activeId === "md" ? highlightStyle : normalStyle}
-            transition={{ duration: 0.6 }}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-16 items-center scroll-mt-28"
-          >
-            {/* Content */}
-            <div className="order-2 md:order-1">
-              <p className="text-brand-500 uppercase tracking-[0.25em] text-sm mb-4">
-                Founder & Managing Director (Main Highlight)
-              </p>
-
-              <h2 className="font-display text-4xl text-forest mb-6">
-                K. Dayakar Reddy (B.A., LL.B.)
-              </h2>
-
-              <p className="text-lg text-forest/80 leading-relaxed mb-6">
-                Legal-driven real estate leader focused on transparency, due
-                diligence, and ethical land development.
-              </p>
-
-              <div className="space-y-5 text-forest/70 leading-[1.9]">
-                <p>
-                  K. Dayakar Reddy founded LA Infra with a clear commitment to
-                  bringing legal clarity and transparency into land development.
-                </p>
-
-                <p>
-                  With a background in law, he specializes in real estate legal
-                  due diligence, ensuring that land transactions are supported
-                  by proper documentation and verified ownership.
-                </p>
-
-                <p>
-                  Under his leadership, LA Infra focuses on developing secure
-                  farmland ventures, nature estates, and eco-driven retreat
-                  environments built on responsible planning and ethical
-                  practices.
-                </p>
-
-                <p>
-                  He strongly believes that long-term success in real estate is
-                  built on honesty, accountability, and trust rather than
-                  speculative promises.
-                </p>
-              </div>
-            </div>
-
-            {/* Image */}
-            <div className="order-1 md:order-2 rounded-[14px] overflow-hidden shadow-xl">
-              <img
-                src={mdImg}
-                alt="K Dayakar Reddy"
-                className="w-full h-[520px] object-cover"
-              />
-            </div>
-          </motion.div>
-          {/* ===== Gold Ornament Divider ===== */}
-          <div className="flex items-center justify-center gap-6 my-5">
-            <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-
-            <div className="relative flex items-center justify-center">
-              <div className="w-3 h-3 rotate-45 border border-amber-400" />
-              <div className="absolute w-1.5 h-1.5 rotate-45 bg-amber-400" />
-            </div>
-
-            <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-          </div>
-
-          {/* ================= DIRECTOR ================= */}
-          <motion.div
-            id="director"
-            animate={activeId === "director" ? highlightStyle : normalStyle}
-            transition={{ duration: 0.6 }}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-16 items-center scroll-mt-28"
-          >
-            {/* Image */}
-            <div className="rounded-[14px] overflow-hidden shadow-xl">
-              <img
-                src={directorImg}
-                alt="Anirudh Reddy Solipuram"
-                className="w-full h-[520px] object-cover"
-              />
-            </div>
-
-            {/* Content */}
-            <div>
-              <p className="text-brand-500 uppercase tracking-[0.25em] text-sm mb-2">
-                Director
-              </p>
-
-              <h2 className="font-display text-4xl text-forest mb-4">
-                Anirudh Reddy Solipuram (S.A.R., MS USA)
-              </h2>
-
-              <p className="text-lg text-forest/80 leading-relaxed mb-2">
-                Eco-conscious entrepreneur bringing global sustainability
-                insights to nature-aligned land development.
-              </p>
-
-              <div className="space-y-5 text-forest/70 leading-[1.3]">
-                <p>
-                  Anirudh Reddy Solipuram brings a global perspective to
-                  sustainable development and responsible land use.
-                </p>
-
-                <p>
-                  Holding a Master’s degree from the United States, he combines
-                  technical knowledge with a strong interest in ecology, organic
-                  farming, and sustainable architecture.
-                </p>
-
-                <p>
-                  His international exposure across multiple countries has
-                  allowed him to study wellness retreats, eco-resorts, and
-                  nature-driven development models around the world.
-                </p>
-
-                <p>
-                  Alongside his work in land development, he is actively engaged
-                  in the education sector, promoting nature-based learning
-                  environments and holistic educational initiatives.
-                </p>
-
-                <p>
-                  At LA Infra, he contributes to the vision of creating
-                  developments that integrate nature, sustainability, and
-                  responsible land stewardship.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-          {/* ===== Gold Ornament Divider ===== */}
-          <div className="flex items-center justify-center gap-6 my-5">
-            <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-
-            <div className="relative flex items-center justify-center">
-              <div className="w-3 h-3 rotate-45 border border-amber-400" />
-              <div className="absolute w-1.5 h-1.5 rotate-45 bg-amber-400" />
-            </div>
-
-            <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-          </div>
-
-          {/* ================= CFO ================= */}
-          <motion.div
-            id="cfo"
-            animate={activeId === "cfo" ? highlightStyle : normalStyle}
-            transition={{ duration: 0.6 }}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-16 items-center scroll-mt-28"
-          >
-            {/* Content */}
-            <div className="order-2 md:order-1">
-              <p className="text-brand-500 uppercase tracking-[0.25em] text-sm mb-4">
-                Co-Founder & Chief Financial Officer
-              </p>
-
-              <h2 className="font-display text-4xl text-forest mb-6">
-                Sanghamitra Reddy K (B.A., LL.B.)
-              </h2>
-
-              <p className="text-lg text-forest/80 leading-relaxed mb-6">
-                Financial strategist and legal professional guiding governance,
-                compliance, and capital planning.
-              </p>
-
-              <div className="space-y-5 text-forest/70 leading-[1.9]">
-                <p>
-                  Sanghamitra serves as the Co-Founder and Chief Financial
-                  Officer of LA Infra, contributing both legal expertise and
-                  financial leadership to the organization.
-                </p>
-
-                <p>
-                  With a background in law, she plays an important role in
-                  overseeing financial strategy, capital planning, regulatory
-                  compliance, and investor relations.
-                </p>
-
-                <p>
-                  Her work helps ensure that the company’s developments are
-                  supported by strong financial discipline and sound legal
-                  frameworks, enabling projects to remain sustainable and
-                  transparent.
-                </p>
-              </div>
-            </div>
-
-            {/* Image */}
-            <div className="order-1 md:order-2 rounded-[14px] overflow-hidden shadow-xl">
-              <img
-                src={cofcfo}
-                alt="Mitra"
-                className="w-full h-[520px] object-cover"
-              />
-            </div>
-          </motion.div>
+                {/* Image */}
+                <div className="order-1 md:order-2 relative">
+                  <div className="absolute -inset-6 bg-gradient-to-tr from-amber-200/30 via-transparent to-amber-400/20 blur-2xl" />
+                  <div className="relative rounded-[18px] overflow-hidden shadow-2xl">
+                    <img
+                      src={mdImg}
+                      alt="Founder LA Infra"
+                      className="w-full h-[600px] object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })()}
         </div>
       </section>
 
-      {/* MODAL
+      {/* ================= LEADERSHIP GRID (SOBHA STYLE) ================= */}
+      <section className="py-20 bg-cream bg-gradient-to-b from-[#f3efe7] to-[#eae4d8] overflow-hidden">
+        <SectionReveal>
+          <div className="text-center mb-14">
+            <h2 className="section-heading">OUR LEADERSHIP</h2>
+            {/* <h2 className="section-heading">
+                Operational & Advisory Leadership
+              </h2> */}
+            {/* ===== Gold Ornament Divider ===== */}
+            <div className="flex items-center justify-center gap-6 my-10">
+              <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+
+              <div className="relative flex items-center justify-center">
+                <div className="w-3 h-3 rotate-45 border border-amber-400" />
+                <div className="absolute w-1.5 h-1.5 rotate-45 bg-amber-400" />
+              </div>
+
+              <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+            </div>
+          </div>
+        </SectionReveal>
+        <div className="container-site max-w-7xl">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-14 gap-y-16">
+            {leaderCards.map((leader, i) => (
+              <motion.div
+                key={leader.id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08 }}
+                viewport={{ once: true }}
+                className="text-center cursor-pointer group"
+                onClick={() => setActive(leader)}
+              >
+                <div className="relative overflow-hidden rounded-[5px] shadow-md group">
+                  {leader.img ? (
+                    <img
+                      src={leader.img}
+                      alt={leader.name}
+                      className="w-full h-[360px] object-cover transition-transform duration-700 group-hover:scale-[0.97]"
+                    />
+                  ) : (
+                    <div className="w-full h-[360px] bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                      <span className="text-gray-600 text-sm tracking-[0.3em] uppercase">
+                        No Image Available
+                      </span>
+                    </div>
+                  )}
+                </div>
+                {/* Name */}
+                <h3 className="mt-6 text-[18px] tracking-wide text-forest font-medium uppercase">
+                  {leader.name}
+                </h3>
+
+                {/* Role */}
+                <p className="text-[12px] tracking-[0.35em] text-forest/50 mt-2 uppercase">
+                  {leader.role}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <AnimatePresence>
         {active && (
           <motion.div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 
-                 flex items-center justify-center 
-                 p-4 md:p-6"
+            className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActive(null)}
           >
             <motion.div
-              className="relative bg-white max-w-4xl w-full rounded-[18px] shadow-2xl overflow-hidden max-h-[90vh]"
-              initial={{ opacity: 0, scale: 0.92, y: 40 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 40 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="relative bg-white max-w-5xl w-full rounded-xl shadow-2xl overflow-hidden max-h-[90vh]"
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.92 }}
+              transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="grid md:grid-cols-2 flex-1 min-h-0">
-                <button
-                  onClick={() => setActive(null)}
-                  className="absolute top-5 right-5 w-10 h-10 rounded-full
-             bg-white/80 backdrop-blur-md border border-brand-300/40
-             shadow-md hover:shadow-lg
-             flex items-center justify-center
-             transition-all duration-300
-             hover:scale-110 hover:rotate-90 group"
-                  aria-label="Close modal"
-                >
-                  <svg
-                    className="w-4 h-4 text-forest group-hover:text-brand-500 transition-colors"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 6l12 12M6 18L18 6"
+              {/* CLOSE */}
+              <button
+                onClick={() => setActive(null)}
+                className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/80 backdrop-blur rounded-full shadow flex items-center justify-center hover:scale-110 transition"
+              >
+                ✕
+              </button>
+
+              {/* LEFT ARROW */}
+              <button
+                onClick={goPrev}
+                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-forest text-4xl opacity-70 hover:opacity-100"
+              >
+                ‹
+              </button>
+
+              {/* RIGHT ARROW */}
+              <button
+                onClick={goNext}
+                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-forest text-4xl opacity-70 hover:opacity-100"
+              >
+                ›
+              </button>
+
+              <div className="grid md:grid-cols-2 h-full">
+                {/* IMAGE */}
+                <div className="overflow-hidden bg-black">
+                  {active.img ? (
+                    <img
+                      src={active.img}
+                      alt={active.name}
+                      className="w-full h-full object-cover hover:scale-110 transition duration-700"
                     />
-                  </svg>
-                </button>
-                {/* LEFT IMAGE 
-                <div className="h-full">
-                  <img
-                    src={active.img}
-                    alt={active.name}
-                    className="w-full h-full object-cover"
-                  />
+                  ) : (
+                    <div className="w-full h-full min-h-[520px] bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                      <span className="text-gray-600 text-sm tracking-[0.4em] uppercase">
+                        No Image Available
+                      </span>
+                    </div>
+                  )}
                 </div>
 
-                {/* RIGHT CONTENT (SCROLL FIXED) 
-                <div className="p-8 md:p-10 overflow-y-auto min-h-0 premium-scroll scroll-smooth">
-                  <h2 className="font-display text-2xl text-forest mb-2">
-                    {active.name}
-                  </h2>
-                  <p className="text-brand-500 mb-6">{active.role}</p>
+                {/* CONTENT */}
+                <div className="flex flex-col h-full">
+                  {/* STICKY HEADER */}
+                  <div className="sticky top-0 bg-white z-10 p-8 pb-4 border-b">
+                    <h2 className="font-display text-3xl text-forest">
+                      {active.name}
+                    </h2>
+                    <p className="text-brand-600 tracking-widest uppercase text-sm mt-2">
+                      {active.role}
+                    </p>
+                  </div>
 
-                  <div className="text-forest/70 whitespace-pre-line leading-relaxed text-sm">
-                    {active.full}
+                  {/* SCROLLABLE CONTENT */}
+                  <div className="p-8 overflow-y-auto premium-scroll">
+                    <div className="text-forest/70 whitespace-pre-line leading-relaxed">
+                      {active.content}
+                    </div>
                   </div>
                 </div>
               </div>
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence> */}
+      </AnimatePresence>
+
       {/* ===== Gold Ornament Divider ===== */}
-      <div className="flex items-center justify-center gap-6 my-5">
+      {/* <div className="flex items-center justify-center gap-6 my-5">
         <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
 
         <div className="relative flex items-center justify-center">
@@ -734,95 +616,7 @@ At LA Infra, he contributes to the vision of creating developments that integrat
         </div>
 
         <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
-      </div>
-
-      {/* TEAM — MATCHING LEADERSHIP STYLE */}
-      <section className="py-16 bg-cream">
-        <div className="container-site">
-          <SectionReveal>
-            <div className="text-center mb-14">
-              <span className="section-label mb-3 block">Our Team</span>
-              <h2 className="section-heading">
-                Operational & Advisory Leadership
-              </h2>
-            </div>
-          </SectionReveal>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* COO */}
-            <SectionReveal delay={0.1}>
-              <div className="bg-white rounded-[14px] shadow-soft p-8 hover:-translate-y-2 hover:shadow-lg transition-all duration-300">
-                <p className="text-brand-500 uppercase tracking-wide text-xs mb-2">
-                  Chief Operating Officer
-                </p>
-
-                <h3 className="font-display text-xl text-forest mb-4">
-                  D. Venkat Reddy
-                </h3>
-
-                <p className="text-forest font-medium mb-4 leading-relaxed">
-                  Operations leader responsible for project execution, site
-                  coordination, and development efficiency.
-                </p>
-
-                <div className="space-y-3 text-forest/70 text-sm leading-relaxed">
-                  <p>
-                    D. Venkat Reddy oversees the operational execution of
-                    projects at LA Infra.
-                  </p>
-                  <p>
-                    With experience in project management and operational
-                    coordination, he ensures that development activities are
-                    carried out with discipline, efficiency, and attention to
-                    quality.
-                  </p>
-                  <p>
-                    His role focuses on site supervision, resource coordination,
-                    and maintaining structured workflows to ensure smooth
-                    project implementation.
-                  </p>
-                </div>
-              </div>
-            </SectionReveal>
-
-            {/* ADVISOR */}
-            <SectionReveal delay={0.2}>
-              <div className="bg-white rounded-[14px] shadow-soft p-8 hover:-translate-y-2 hover:shadow-lg transition-all duration-300">
-                <p className="text-brand-500 uppercase tracking-wide text-xs mb-2">
-                  Spiritual & Vastu Advisor
-                </p>
-
-                <h3 className="font-display text-xl text-forest mb-4">
-                  Bramashree Prashanth Sharma
-                </h3>
-
-                <p className="text-forest font-medium mb-4 leading-relaxed">
-                  Spiritual guide and Vastu advisor supporting balanced and
-                  harmonious land development.
-                </p>
-
-                <div className="space-y-3 text-forest/70 text-sm leading-relaxed">
-                  <p>
-                    Bramashree Prashanth Sharma provides guidance to LA Infra
-                    through his deep understanding of Vastu Shastra and
-                    traditional knowledge systems.
-                  </p>
-                  <p>
-                    His advisory role reflects the company’s belief that land
-                    development can benefit from both modern planning and
-                    traditional wisdom.
-                  </p>
-                  <p>
-                    This guidance helps ensure developments emphasize harmony,
-                    balance, and positive spatial orientation.
-                  </p>
-                </div>
-              </div>
-            </SectionReveal>
-          </div>
-        </div>
-      </section>
-
+      </div> */}
       {/* ===== FOUNDER QUOTE ===== */}
       <section className="relative py-20 bg-cream overflow-hidden">
         {/* subtle texture */}

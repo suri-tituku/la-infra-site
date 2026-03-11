@@ -108,12 +108,12 @@ const leaders = [
     title: "Chairman",
     profileId: "chairman", // 👈 add this
     image: kolliImg,
-    bio: "Over four decades of organic farming and 35+ years leading real estate across Telangana, AP & Karnataka.",
-    highlights: [
-      "Clear-title investment delivery",
-      "Ethical leadership",
-      "Long-term value focus",
-    ],
+    bio: "Land rewards patience, discipline, and respect. Those who understand the land understand true value.",
+    // highlights: [
+    //   "Clear-title investment delivery",
+    //   "Ethical leadership",
+    //   "Long-term value focus",
+    // ],
   },
   {
     name: "K. Dayakar Reddy",
@@ -121,39 +121,39 @@ const leaders = [
     title: "Founder & Managing Director",
     profileId: "md",
     image: dayakarImg,
-    bio: "Leads LA Infra with strong commitment to legal clarity and ethical development.",
-    highlights: [
-      "End-to-end legal due diligence",
-      "Clear-title verification",
-      "Transparent development model",
-    ],
+    bio: "Trust is the true foundation of every land investment.",
+    // highlights: [
+    //   "End-to-end legal due diligence",
+    //   "Clear-title verification",
+    //   "Transparent development model",
+    // ],
   },
-  {
-    name: "Solipuram Anirudh Reddy",
-    suffix: "S.A.R., MS USA",
-    title: "Director",
-    profileId: "director",
-    image: anirudhImg,
-    bio: "Eco-conscious entrepreneur with global perspective on sustainable development.",
-    highlights: [
-      "Eco-sensitive design",
-      "Nature-based developments",
-      "Founder Aranya Nature School",
-    ],
-  },
-  {
-    name: "Sanghamitra Reddy K",
-    suffix: "BA LLB",
-    title: "CFO & Co-Founder",
-    profileId: "cfo",
-    image: mitraImg,
-    bio: "Combines legal insight with financial discipline to deliver secure developments.",
-    highlights: [
-      "Project structuring",
-      "Financial planning",
-      "Regulatory compliance",
-    ],
-  },
+  // {
+  //   name: "Solipuram Anirudh Reddy",
+  //   suffix: "S.A.R., MS USA",
+  //   title: "Director",
+  //   profileId: "director",
+  //   image: anirudhImg,
+  //   bio: "Eco-conscious entrepreneur with global perspective on sustainable development.",
+  //   highlights: [
+  //     "Eco-sensitive design",
+  //     "Nature-based developments",
+  //     "Founder Aranya Nature School",
+  //   ],
+  // },
+  // {
+  //   name: "Sanghamitra Reddy K",
+  //   suffix: "BA LLB",
+  //   title: "CFO & Co-Founder",
+  //   profileId: "cfo",
+  //   image: mitraImg,
+  //   bio: "Combines legal insight with financial discipline to deliver secure developments.",
+  //   highlights: [
+  //     "Project structuring",
+  //     "Financial planning",
+  //     "Regulatory compliance",
+  //   ],
+  // },
 ];
 
 export default function Home() {
@@ -240,9 +240,7 @@ active:scale-95 transition-all duration-300"
         </div>
       </section>
       <StatsSection />
-      <ProjectsGallery />
       <LuxuryPillarsTimeline />
-      <StorySection />
       {/* ===== FOUNDER QUOTE ===== */}
       <section className="relative py-20 bg-cream overflow-hidden">
         {/* subtle texture */}
@@ -296,7 +294,7 @@ active:scale-95 transition-all duration-300"
           <SectionReveal>
             <div className="text-center mb-14">
               <span className="section-label mb-3 block">Our Leadership</span>
-              <h2 className="section-heading">
+              <h2 className="section-heading ">
                 Guided by Experience & Integrity
               </h2>
             </div>
@@ -304,13 +302,13 @@ active:scale-95 transition-all duration-300"
 
           <div className="grid md:grid-cols-2 gap-6">
             {leaders.map((l, i) => (
-              <Link key={i} to={`/leadership#${l.profileId}`} className="block">
-                <LeadershipCard {...l} delay={i * 0.1} />
-              </Link>
+              <LeadershipCard key={i} {...l} delay={i * 0.1} />
             ))}
           </div>
         </div>
       </section>{" "}
+      <StorySection />
+      <ProjectsGallery />
       <CTABanner
         heading="Ready to Invest in Ethical Land Development?"
         sub="Connect with our team to explore farmland and estate opportunities."

@@ -82,7 +82,10 @@ export default function Footer() {
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              <span className="text-cream/60">Hyderabad, Telangana, India</span>
+             <span className="text-cream/60">
+  4th Floor, Piller, 36 Square, H.No.8-2-293/82/A/481/IV-2,<br/>
+  Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033
+</span>
             </li>
             <li className="flex gap-3">
               <svg
@@ -99,10 +102,10 @@ export default function Footer() {
                 />
               </svg>
               <a
-                href="tel:+919666088822"
+               href="tel:+917842262261"
                 className="text-cream/60 hover:text-brand-300 transition-colors"
               >
-                +91 96660 88822
+                +91 78422 62261
               </a>
             </li>
             <li className="flex gap-3">
@@ -120,10 +123,10 @@ export default function Footer() {
                 />
               </svg>
               <a
-                href="mailto:info@lainfra.com"
+                href="mailto:contact@thelainfra.com"
                 className="text-cream/60 hover:text-brand-300 transition-colors"
               >
-                info@lainfra.com
+                contact@thelainfra.com
               </a>
             </li>
           </ul>

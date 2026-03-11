@@ -55,16 +55,17 @@ export default function Navbar() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <motion.img
-            src={useDarkLogo ? logoDark : logoLight}
+            src={useDarkLogo ? logoDark : logoDark}
             alt="LA Infra - Land Development Company"
-            key={useDarkLogo ? "dark" : "light"} // smooth transition
+            key={useDarkLogo ? "dark" : "dark"} // smooth transition
+           // key={useDarkLogo ? "dark" : "light"} // smooth transition
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
             whileHover={{ scale: 1.05 }}
             className={`
     object-contain
-    ${isHome ? "h-10" : "h-10"}
+    ${isHome ? "h-12" : "h-10"}
     drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]
     transition-all duration-300
   `}
