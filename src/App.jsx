@@ -9,12 +9,14 @@ import ScrollProgress from "./components/ScrollProgress";
 import InvestorPopup from "./components/InvestorPopup";
 import PageTransition from "./components/PageTransition";
 
-/* Lazy Pages */
+/* Lazy Pages — Updated */
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
-const Mission = lazy(() => import("./pages/Mission"));
-const Clients = lazy(() => import("./pages/Clients"));
+const Leadership = lazy(() => import("./pages/Leadership"));
+const Developments = lazy(() => import("./pages/Developments"));
+const Sustainability = lazy(() => import("./pages/Sustainability"));
+const Investor = lazy(() => import("./pages/Investor"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 
@@ -37,7 +39,6 @@ function PageLoader() {
     <div className="min-h-screen flex items-center justify-center bg-cream">
       <div className="flex flex-col items-center gap-4">
         <div className="w-8 h-8 border-2 border-brand-700 border-t-transparent rounded-full animate-spin" />
-
         <span className="font-body text-sm text-brand-600 tracking-widest uppercase">
           Loading
         </span>
@@ -50,7 +51,6 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
-
       <ScrollProgress />
 
       {/* Navbar */}
@@ -61,30 +61,24 @@ export default function App() {
 
       <main>
         <Suspense fallback={<PageLoader />}>
-
-          {/* Page transition animation */}
           <PageTransition>
-
             <Routes>
-
+              {/* Core Pages */}
               <Route path="/" element={<Home />} />
-
               <Route path="/about-us" element={<About />} />
-
-              <Route path="/mission-vision" element={<Mission />} />
-
-              <Route path="/clients" element={<Clients />} />
-
+              <Route path="/leadership" element={<Leadership />} />
+              <Route path="/developments" element={<Developments />} />
+              <Route path="/sustainability" element={<Sustainability />} />
+              <Route path="/investor" element={<Investor />} />
               <Route path="/contact" element={<Contact />} />
 
+              {/* Legal */}
               <Route path="/privacy-policy" element={<Privacy />} />
 
+              {/* Fallback */}
               <Route path="*" element={<Home />} />
-
             </Routes>
-
           </PageTransition>
-
         </Suspense>
       </main>
 

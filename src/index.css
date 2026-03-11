@@ -81,3 +81,58 @@
   pointer-events: none;
   opacity: 0.4;
 }
+
+
+/* ===== PREMIUM THEMED SCROLLBAR ===== */
+
+/* Chrome, Edge, Safari */
+.premium-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.premium-scroll::-webkit-scrollbar-track {
+  background: #f3efe7;
+  /* soft cream track */
+  border-radius: 10px;
+}
+
+.premium-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom,
+      #1b3a2d,
+      #214d3a,
+      #1b3a2d);
+  /* forest gradient */
+  border-radius: 10px;
+  border: 2px solid #f3efe7;
+  /* padding effect */
+}
+
+.premium-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom,
+      #214d3a,
+      #2c6b4f,
+      #214d3a);
+}
+
+/* Firefox */
+.premium-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #214d3a #f3efe7;
+}
+/* Green Elegant Scrollbar */
+.custom-green-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-green-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-green-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #14532d, #16a34a);
+  border-radius: 10px;
+}
+
+.custom-green-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #166534, #22c55e);
+}
