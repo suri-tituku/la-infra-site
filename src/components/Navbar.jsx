@@ -58,7 +58,9 @@ export default function Navbar() {
             src={useDarkLogo ? logoDark : logoDark}
             alt="LA Infra - Land Development Company"
             key={useDarkLogo ? "dark" : "dark"} // smooth transition
-           // key={useDarkLogo ? "dark" : "light"} // smooth transition
+            // src={useDarkLogo ? logoDark : logoLight}
+            // alt="LA Infra - Land Development Company"
+            // key={useDarkLogo ? "dark" : "light"} // smooth transition
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
@@ -84,7 +86,7 @@ export default function Navbar() {
               end={to === "/"}
               className={({ isActive }) =>
                 `relative px-4 py-2 font-body text-sm tracking-wide transition-all duration-300
-        ${isActive ? "text-brand-300" : "text-cream/80 hover:text-cream"}`
+    ${isActive ? "text-brand-300" : "text-cream/80 hover:text-cream"}`
               }
             >
               {({ isActive }) => (

@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollProgress from "./components/ScrollProgress";
 
-//import InvestorPopup from "./components/InvestorPopup";
+import InvestorPopup from "./components/InvestorPopup";
 import PageTransition from "./components/PageTransition";
 
 /* Lazy Pages — Updated */
@@ -19,7 +19,7 @@ const Sustainability = lazy(() => import("./pages/Sustainability"));
 const Investor = lazy(() => import("./pages/Investor"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Privacy = lazy(() => import("./pages/Privacy"));
-
+const NotFound = lazy(() => import("./pages/NotFound"));
 /* Scroll to top on route change */
 
 function ScrollToTop() {
@@ -57,7 +57,7 @@ export default function App() {
       <Navbar />
 
       {/* Investor lead popup */}
-      {/* <InvestorPopup /> */}
+      <InvestorPopup />
 
       <main>
         <Suspense fallback={<PageLoader />}>
@@ -76,7 +76,7 @@ export default function App() {
               <Route path="/privacy-policy" element={<Privacy />} />
 
               {/* Fallback */}
-              <Route path="*" element={<Home />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </PageTransition>
         </Suspense>
