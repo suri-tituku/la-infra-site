@@ -18,7 +18,7 @@ const Developments = lazy(() => import("./pages/Developments"));
 const Sustainability = lazy(() => import("./pages/Sustainability"));
 const Investor = lazy(() => import("./pages/Investor"));
 const Contact = lazy(() => import("./pages/Contact"));
-const Privacy = lazy(() => import("./pages/Privacy"));
+//const Privacy = lazy(() => import("./pages/Privacy"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 /* Scroll to top on route change */
 
