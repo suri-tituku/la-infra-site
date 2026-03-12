@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 import GoldParticles from "../components/GoldParticles";
 import { Trees, Mountain, Map, Sprout, HeartPulse } from "lucide-react";
+import BreadcrumbSchema from "../components/BreadcrumbSchema";
 /* Scroll Animation */
 const reveal = {
   hidden: { opacity: 0, y: 60 },
@@ -96,9 +97,16 @@ export default function Developments() {
   return (
     <>
       <SEO
-        title="Responsible Land Developments | Farmland Projects | LA Infra"
-        description="Explore LA Infra developments including farmland stewardship projects, nature estate communities, and eco-retreat environments designed with responsible planning and long-term land value."
-        url="https://www.thelainfra.com/developments"
+        title="Land Developments"
+        description="Explore farmland and estate development projects by LA Infra."
+        url="https://thelainfra.com/developments"
+        breadcrumbs={[{ name: "Developments", path: "/developments" }]}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://thelainfra.com" },
+          { name: "Developments", url: "https://thelainfra.com/developments" },
+        ]}
       />
 
       {/* HERO */}

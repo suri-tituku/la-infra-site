@@ -1,0 +1,31 @@
+# ==========================================
+# robots.txt for thelainfra.com
+# Controls how search engines crawl the site
+# ==========================================
+
+# Allow all search engine bots to crawl the site
+User-agent: *
+Allow: /
+
+# Explicitly allow major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block sensitive or non-public paths (optional safety)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+Disallow: /node_modules/
+Disallow: /src/
+
+# Sitemap location
+Sitemap: https://thelainfra.com/sitemap.xml

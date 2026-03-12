@@ -79,9 +79,10 @@ export default function Investor() {
   return (
     <>
       <SEO
-        title="Investor Relations | Secure Land Investment | LA Infra"
-        description="Learn how LA Infra provides responsible land investment opportunities through legal clarity, transparent processes, and sustainable long-term development."
-        url="https://www.thelainfra.com/investor"
+        title="Investor Relations"
+        description="Investment opportunities with LA Infra farmland and estate developments."
+        url="https://thelainfra.com/investor"
+        breadcrumbs={[{ name: "Investor", path: "/investor" }]}
       />
 
       {/* HERO */}

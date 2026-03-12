@@ -168,9 +168,9 @@ ${fields.message}
   return (
     <>
       <SEO
-        title="Contact LA Infra – Enquire About Farmland Projects"
-        description="Get in touch with LA Infra for enquiries about farmland investments, garden lands, estate developments, and eco-resort projects across Telangana and Andhra Pradesh."
-        url="https://www.thelainfra.com/contact"
+        title="Contact LA Infra"
+        description="Connect with LA Infra for farmland investment opportunities."
+        url="https://thelainfra.com/contact"
         breadcrumbs={[{ name: "Contact", path: "/contact" }]}
       />
 

@@ -8,6 +8,7 @@ import cofcfo from "../assets/images/leaders/mitra-co-founder-and-chief-financia
 import directorImg from "../assets/images/leaders/anirudh-reddy-solipuram-director.jpg";
 import SectionReveal from "../components/SectionReveal";
 import { useLocation } from "react-router-dom";
+import BreadcrumbSchema from "../components/BreadcrumbSchema";
 
 export default function Leadership() {
   const location = useLocation();
@@ -178,9 +179,17 @@ His advisory ensures developments combine modern planning with traditional wisdo
   return (
     <>
       <SEO
-        title="Leadership & Stewardship | LA Infra Ethical Land Development"
-        description="Meet the leadership team guiding LA Infra with agricultural heritage, legal expertise, sustainability vision, and responsible land stewardship across South India."
-        url="https://www.thelainfra.com/leadership"
+        title="Leadership"
+        description="Meet the leadership team guiding LA Infra's ethical land development vision."
+        url="https://thelainfra.com/leadership"
+        breadcrumbs={[{ name: "Leadership", path: "/leadership" }]}
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://thelainfra.com" },
+          { name: "Leadership", url: "https://thelainfra.com/leadership" },
+        ]}
       />
 
       {/* HERO — SAME STYLE AS ABOUT PAGE */}

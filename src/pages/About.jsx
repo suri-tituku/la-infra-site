@@ -3,7 +3,7 @@ import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import GoldParticles from "../components/GoldParticles";
 import { Leaf, Sprout, Trees } from "lucide-react";
-
+import BreadcrumbSchema from "../components/BreadcrumbSchema";
 export default function About() {
   const items = [
     {
@@ -26,11 +26,17 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About LA Infra | Ethical Land Development Company"
-        description="LA Infra is a values-driven land development company specializing in farmland ventures, nature estates, and eco-retreat environments built with legal clarity and environmental responsibility."
-        url="https://www.thelainfra.com/about-us"
+        title="About LA Infra"
+        description="Learn about LA Infra's ethical land development philosophy."
+        url="https://thelainfra.com/about-us"
+        breadcrumbs={[{ name: "About Us", path: "/about-us" }]}
       />
-
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://thelainfra.com" },
+          { name: "About Us", url: "https://thelainfra.com/about-us" },
+        ]}
+      />
       {/* HERO */}
       <section className="relative bg-forest pt-28 pb-12 text-cream overflow-hidden">
         <GoldParticles />

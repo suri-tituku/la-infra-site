@@ -74,9 +74,10 @@ export default function Sustainability() {
   return (
     <>
       <SEO
-        title="Sustainable Land Development | Environmental Responsibility | LA Infra"
-        description="Discover LA Infra's sustainability philosophy including responsible land stewardship, eco-conscious development, agricultural values, and wellness-focused natural environments."
-        url="https://www.thelainfra.com/sustainability"
+        title="Sustainability"
+        description="LA Infra promotes environmentally responsible land development."
+        url="https://thelainfra.com/sustainability"
+        breadcrumbs={[{ name: "Sustainability", path: "/sustainability" }]}
       />
 
       {/* HERO */}

@@ -13,6 +13,8 @@ import heroImage from "../assets/images/hero/hero-farmland.webp";
 import StorySection from "../components/StorySection";
 import kolliImg from "../assets/images/leaders/kolli-sambireddy-chairman-icon.jpg";
 import dayakarImg from "../assets/images/leaders/k-dayakar-reddy-founder-and-managing-director-icon.jpg";
+import RealEstateSchema from "../components/RealEstateSchema";
+import BreadcrumbSchema from "../components/BreadcrumbSchema";
 //import LandMap from "../components/LandMap"
 const trustPillars = [
   {
@@ -158,10 +160,11 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="LA Infra – Ethical Real Estate & Land Development in Telangana"
+        title="LA Infra – Ethical Real Estate & Land Development"
         description="LA Infra specializes in farmland ventures, garden lands, estate developments, and eco-getaway projects."
-        url="https://www.thelainfra.com"
+        url="https://thelainfra.com"
       />
+      <RealEstateSchema />
       {/* HERO */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background */}
