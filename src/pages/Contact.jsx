@@ -13,10 +13,10 @@ Change this if needed.
 
 Format:
 CountryCode + Number
-Example: 917842262261
+Example: 96660 88822
 */
 
-const WHATSAPP_NUMBER = "917842262261";
+const WHATSAPP_NUMBER = "919666088822";
 
 /*
 ====================================================
@@ -483,8 +483,8 @@ ${fields.message}
                             </svg>
                           ),
                           label: "Phone",
-                          value: "+91 78422 62261",
-                          href: "tel:+917842262261",
+                          value: "+91 96660 88822",
+                          href: "tel:+919666088822",
                         },
                         {
                           icon: (

@@ -122,10 +122,10 @@ export default function Footer() {
                 />
               </svg>
               <a
-                href="tel:+917842262261"
+                href="tel:+919666088822"
                 className="text-cream/60 hover:text-brand-300 transition-colors"
               >
-                +91 78422 62261
+                +91 96660 88822
               </a>
             </li>
             <li className="flex gap-3">
