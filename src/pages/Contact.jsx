@@ -157,13 +157,13 @@ ${fields.message}
   */
 
   const inputClass = (name) =>
-    `w-full bg-white border rounded-sm px-4 py-3 font-body text-sm text-forest placeholder-forest/30
-     focus:outline-none focus:ring-1 transition-colors
-     ${
-       errors[name]
-         ? "border-red-400 focus:border-red-400 focus:ring-red-200"
-         : "border-brand-200 focus:border-brand-500 focus:ring-brand-200"
-     }`;
+    `w-full bg-white border rounded-[5px] px-4 py-3 font-body text-sm text-forest placeholder-forest/30
+   focus:outline-none focus:ring-1 transition-colors
+   ${
+     errors[name]
+       ? "border-red-400 focus:border-red-400 focus:ring-red-200"
+       : "border-brand-200 focus:border-brand-500 focus:ring-brand-200"
+   }`;
 
   return (
     <>
@@ -405,7 +405,7 @@ ${fields.message}
                       disabled={status === "sending"}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+                      className="btn-primary w-full rounded-[5px] justify-center disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       {status === "sending"
                         ? "Opening WhatsApp..."
@@ -535,7 +535,7 @@ ${fields.message}
                       ].map((item, i) => (
                         <div
                           key={i}
-                          className="flex gap-4 p-4 bg-brand-50/50 border border-brand-100 rounded-sm"
+                          className="flex gap-4 p-4 bg-brand-50/50 border border-brand-100 rounded-[5px]"
                         >
                           <div className="w-8 h-8 rounded-sm bg-brand-100 flex items-center justify-center text-brand-700 shrink-0">
                             {item.icon}
@@ -562,7 +562,7 @@ ${fields.message}
                     </div>
                   </div>
 
-                  <div className="p-6 bg-forest rounded-sm text-center">
+                  <div className="p-6 bg-forest rounded-[5px] text-center">
                     <p className="text-cream/60 text-xs font-body uppercase tracking-widest mb-3">
                       Operating Regions
                     </p>
