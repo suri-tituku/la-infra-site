@@ -506,7 +506,7 @@ His advisory ensures developments combine modern planning with traditional wisdo
                     <img
                       src={leader.img}
                       alt={leader.name}
-                      className="w-full h-[360px] object-cover transition-transform duration-700 group-hover:scale-[0.97]"
+                      className="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-[0.97]"
                     />
                   ) : (
                     <div className="w-full h-[360px] bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
@@ -541,7 +541,7 @@ His advisory ensures developments combine modern planning with traditional wisdo
             onClick={() => setActive(null)}
           >
             <motion.div
-              className="relative bg-white max-w-7xl w-full rounded-xl shadow-2xl max-h-[90vh] overflow-y-auto md:overflow-hidden"
+              className="relative bg-white max-w-7xl w-full rounded-xl shadow-2xl max-h-[90vh] overflow-y-auto md:overflow-hidden group"
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.92 }}
@@ -556,18 +556,32 @@ His advisory ensures developments combine modern planning with traditional wisdo
                 ✕
               </button>
 
-              {/* LEFT ARROW */}
               <button
                 onClick={goPrev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-forest text-4xl opacity-70 hover:opacity-100"
+                className="absolute left-4 top-1/3 -translate-y-1/3 z-30
+  w-10 h-10 flex items-center justify-center
+  rounded-full bg-white/40 shadow-lg
+  text-forest text-2xl
+
+  opacity-100 md:opacity-0 md:group-hover:opacity-100
+  transition-all duration-300
+
+  hover:bg-white hover:scale-110"
               >
                 ‹
               </button>
 
-              {/* RIGHT ARROW */}
               <button
                 onClick={goNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-forest text-4xl opacity-70 hover:opacity-100"
+                className="absolute right-4 top-1/3 -translate-y-1/3 z-30
+  w-10 h-10 flex items-center justify-center
+  rounded-full bg-white/40 shadow-lg
+  text-forest text-2xl
+
+  opacity-100 md:opacity-0 md:group-hover:opacity-100
+  transition-all duration-300
+
+  hover:bg-white hover:scale-110"
               >
                 ›
               </button>
