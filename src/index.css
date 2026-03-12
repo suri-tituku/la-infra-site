@@ -90,6 +90,11 @@
   width: 8px;
 }
 
+.premium-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #c59d5f transparent;
+}
+
 .premium-scroll::-webkit-scrollbar-track {
   background: #f3efe7;
   /* soft cream track */

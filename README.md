@@ -56,7 +56,8 @@ la-infra/
 ## Running Locally
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm 9+
 
 ### Setup
@@ -85,6 +86,7 @@ npm run build
 This creates a `dist/` folder with optimized static files.
 
 To preview the production build locally:
+
 ```bash
 npm run preview
 ```
@@ -96,6 +98,7 @@ npm run preview
 ### Step-by-Step via hPanel File Manager
 
 1. **Build the project**
+
    ```bash
    npm run build
    ```
@@ -141,7 +144,7 @@ npm run preview
 4. Open `src/pages/Contact.jsx`
 5. Replace `YOUR_FORMSPREE_ID` with your actual ID:
    ```js
-   const FORMSPREE_ID = 'xrgjkpqz'
+   const FORMSPREE_ID = "xrgjkpqz";
    ```
 6. Rebuild and redeploy
 
@@ -155,30 +158,38 @@ If Formspree is unavailable, the form automatically falls back to a `mailto:` li
 
 1. **src/components/SEO.jsx** – Update `sameAs` array with social media URLs
 2. **index.html** – Verify title and description
-3. **src/components/SEO.jsx** – Replace `https://lainfra.com` with your actual domain
+3. **src/components/SEO.jsx** – Replace `https://www.thelainfra.com` with your actual domain
 4. Add a real `og-image.jpg` (1200×630px) to the `public/` folder
 
 ### Google Search Console
+
 1. Go to https://search.google.com/search-console
 2. Add your domain property
 3. Verify via HTML file upload (upload to `public_html`)
 4. Submit sitemap: `https://yourdomain.com/sitemap.xml` (generate with a Vite sitemap plugin)
 
 ### Google Analytics (GA4)
+
 1. Create GA4 property at https://analytics.google.com
 2. Get your Measurement ID (format: `G-XXXXXXXXXX`)
 3. Add to `index.html` before `</head>`:
    ```html
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+   <script
+     async
+     src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+   ></script>
    <script>
      window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'G-XXXXXXXXXX');
+     function gtag() {
+       dataLayer.push(arguments);
+     }
+     gtag("js", new Date());
+     gtag("config", "G-XXXXXXXXXX");
    </script>
    ```
 
 ### Google My Business
+
 1. Visit https://business.google.com
 2. Create listing for "LA Infra"
 3. Add: address, phone (+91 96660 88822), website, category (Real Estate Agency)

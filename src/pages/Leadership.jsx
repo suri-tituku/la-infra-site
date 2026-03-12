@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import SEO from "../components/SEO";
 import { motion, AnimatePresence } from "framer-motion";
 import GoldParticles from "../components/GoldParticles";
-import chairmanImg from "../assets/images/leaders/kolli-sambireddy-chairman.png";
-import mdImg from "../assets/images/leaders/k-dayakar-reddy-founder-and-managing-director.png";
-import cofcfo from "../assets/images/leaders/mitra-co-founder-and-chief-financial-officer.png";
-import directorImg from "../assets/images/leaders/anirudh-reddy-solipuram-director.png";
+import chairmanImg from "../assets/images/leaders/kolli-sambireddy-chairman.jpg";
+import mdImg from "../assets/images/leaders/k-dayakar-reddy-founder-and-managing-director.jpg";
+import cofcfo from "../assets/images/leaders/mitra-co-founder-and-chief-financial-officer.jpg";
+import directorImg from "../assets/images/leaders/anirudh-reddy-solipuram-director.jpg";
 import SectionReveal from "../components/SectionReveal";
 import { useLocation } from "react-router-dom";
 
@@ -28,6 +28,8 @@ export default function Leadership() {
       name: "Kolli Sambireddy (K. S. Reddy)",
       role: "Chairman",
       img: chairmanImg,
+      quote:
+        "Land rewards patience, discipline, and respect. Those who understand the land understand true value.",
       content: `Agriculture-rooted land strategist with decades of experience in land aggregation and responsible development.
       
       Born into an agricultural family, Kolli Sambireddy has been closely connected to farming and land stewardship for most of his life and has practiced organic farming for more than four decades.
@@ -43,6 +45,7 @@ As Chairman of LA Infra, he provides strategic guidance to ensure that the compa
       name: "K. Dayakar Reddy (B.A., LL.B.)",
       role: "Founder & Managing Director",
       img: mdImg,
+      quote: "Trust is the true foundation of every land investment.",
       content: `Legal-driven real estate leader focused on transparency, due diligence, and ethical land development.
 
       K. Dayakar Reddy founded LA Infra with a clear commitment to bringing legal clarity and transparency into land development.
@@ -58,6 +61,8 @@ He strongly believes that long-term success in real estate is built on honesty, 
       name: "Anirudh Reddy Solipuram (S.A.R., MS USA)",
       role: "Director",
       img: directorImg,
+      quote:
+        "True luxury in the future will be space, nature, and environments that restore human well-being.",
       content: `Eco-conscious entrepreneur bringing global sustainability insights to nature-aligned land development.
 
       Anirudh Reddy Solipuram brings a global perspective to sustainable development and responsible land use.
@@ -75,6 +80,8 @@ At LA Infra, he contributes to the vision of creating developments that integrat
       name: "Sanghamitra Reddy K (B.A., LL.B.)",
       role: "Co-Founder & CFO",
       img: cofcfo,
+      quote:
+        "Strong governance and financial discipline are the foundations of sustainable development.",
       content: `Financial strategist and legal professional guiding governance, compliance, and capital planning.
       
       Sanghamitra serves as the Co-Founder and Chief Financial Officer of LA Infra, contributing both legal expertise and financial leadership to the organization.
@@ -88,6 +95,7 @@ Her work helps ensure that the company’s developments are supported by strong 
       name: "D. Venkat Reddy",
       role: "Chief Operating Officer",
       img: null,
+      quote: "",
       content: `Operations leader responsible for project execution and development efficiency.
 
 He oversees operational execution across LA Infra projects ensuring discipline, efficiency, and quality standards.
@@ -100,6 +108,7 @@ His role focuses on site supervision, resource coordination, and structured work
       name: "Bramashree Prashanth Sharma",
       role: "Spiritual & Vastu Advisor",
       img: null,
+      quote: "",
       content: `Spiritual guide and Vastu advisor supporting harmonious land development.
 
 He provides guidance through deep knowledge of Vastu Shastra and traditional systems.
@@ -171,7 +180,7 @@ His advisory ensures developments combine modern planning with traditional wisdo
       <SEO
         title="Leadership & Stewardship | LA Infra Ethical Land Development"
         description="Meet the leadership team guiding LA Infra with agricultural heritage, legal expertise, sustainability vision, and responsible land stewardship across South India."
-        url="https://lainfra.com/leadership"
+        url="https://www.thelainfra.com/leadership"
       />
 
       {/* HERO — SAME STYLE AS ABOUT PAGE */}
@@ -513,7 +522,7 @@ His advisory ensures developments combine modern planning with traditional wisdo
                 </h3>
 
                 {/* Role */}
-                <p className="text-[12px] tracking-[0.35em] text-forest/50 mt-2 uppercase">
+                <p className="text-[14px]  font-medium tracking-[0.25em] text-forest/70 mt-2 uppercase">
                   {leader.role}
                 </p>
               </motion.div>
@@ -532,7 +541,7 @@ His advisory ensures developments combine modern planning with traditional wisdo
             onClick={() => setActive(null)}
           >
             <motion.div
-              className="relative bg-white max-w-5xl w-full rounded-xl shadow-2xl overflow-hidden max-h-[90vh]"
+              className="relative bg-white max-w-7xl w-full rounded-xl shadow-2xl max-h-[90vh] overflow-y-auto md:overflow-hidden"
               initial={{ opacity: 0, scale: 0.92 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.92 }}
@@ -584,7 +593,7 @@ His advisory ensures developments combine modern planning with traditional wisdo
                 {/* CONTENT */}
                 <div className="flex flex-col h-full">
                   {/* STICKY HEADER */}
-                  <div className="sticky top-0 bg-white z-10 p-8 pb-4 border-b">
+                  <div className="sticky top-0 bg-white z-10 p-4 pb-0 border-b">
                     <h2 className="font-display text-3xl text-forest">
                       {active.name}
                     </h2>
@@ -594,10 +603,26 @@ His advisory ensures developments combine modern planning with traditional wisdo
                   </div>
 
                   {/* SCROLLABLE CONTENT */}
-                  <div className="p-8 overflow-y-auto premium-scroll">
-                    <div className="text-forest/70 whitespace-pre-line leading-relaxed">
+                  <div className="p-4 overflow-y-auto premium-scroll md:h-full h-[60vh]">
+                    {/* LEADER BIO */}
+                    <div className="text-forest/70 text-sm whitespace-pre-line leading-relaxed">
                       {active.content}
                     </div>
+
+                    {/* LEADER QUOTE */}
+                    {active?.quote?.trim() && (
+                      <div className="mt-4 text-center">
+                        <div className="flex items-center justify-center gap-6 mb-2">
+                          <div className="h-[1px] w-16 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+                          <div className="w-2 h-2 rotate-45 border border-amber-400" />
+                          <div className="h-[1px] w-16 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+                        </div>
+
+                        <blockquote className="font-display text-xl md:text-1xl text-forest italic leading-[1.1]">
+                          “{active.quote}”
+                        </blockquote>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -741,13 +766,13 @@ His advisory ensures developments combine modern planning with traditional wisdo
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://lainfra.com/"
+      "item": "https://www.thelainfra.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Leadership",
-      "item": "https://lainfra.com/leadership"
+      "item": "https://www.thelainfra.com/leadership"
     }
   ]
 }

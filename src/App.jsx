@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollProgress from "./components/ScrollProgress";
 
-import InvestorPopup from "./components/InvestorPopup";
+//import InvestorPopup from "./components/InvestorPopup";
 import PageTransition from "./components/PageTransition";
 
 /* Lazy Pages — Updated */
@@ -57,7 +57,7 @@ export default function App() {
       <Navbar />
 
       {/* Investor lead popup */}
-      <InvestorPopup />
+      {/* <InvestorPopup /> */}
 
       <main>
         <Suspense fallback={<PageLoader />}>
@@ -73,7 +73,7 @@ export default function App() {
               <Route path="/contact" element={<Contact />} />
 
               {/* Legal */}
-              <Route path="/privacy-policy" element={<Privacy />} />
+              {/* <Route path="/privacy-policy" element={<Privacy />} /> */}
 
               {/* Fallback */}
               <Route path="*" element={<NotFound />} />

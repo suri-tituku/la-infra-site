@@ -4,21 +4,54 @@ import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 import SectionReveal from "../components/SectionReveal";
 
-const FORMSPREE_ID = "YOUR_FORMSPREE_ID"; // Replace with actual Formspree ID
+/*
+====================================================
+WHATSAPP SETTINGS
+====================================================
+
+Change this if needed.
+
+Format:
+CountryCode + Number
+Example: 917842262261
+*/
+
+const WHATSAPP_NUMBER = "917842262261";
+
+/*
+====================================================
+FORM VALIDATION FUNCTION
+====================================================
+
+Ensures required fields are filled and message length
+is minimum.
+
+Returns errors object.
+*/
 
 function validate(fields) {
   const errors = {};
+
   if (!fields.name.trim()) errors.name = "Full name is required.";
   if (!fields.phone.trim()) errors.phone = "Phone number is required.";
   if (!fields.city.trim()) errors.city = "City is required.";
+
   if (!fields.email.trim() || !/\S+@\S+\.\S+/.test(fields.email))
     errors.email = "A valid email is required.";
+
   if (!fields.message.trim() || fields.message.trim().length < 10)
     errors.message = "Message must be at least 10 characters.";
+
   return errors;
 }
 
 export default function Contact() {
+  /*
+  ====================================================
+  FORM STATE
+  ====================================================
+  */
+
   const [fields, setFields] = useState({
     name: "",
     email: "",
@@ -26,55 +59,105 @@ export default function Contact() {
     city: "",
     message: "",
   });
+
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+
+  /*
+  Form status
+
+  idle
+  sending
+  success
+  */
+
+  const [status, setStatus] = useState("idle");
+
+  /*
+  ====================================================
+  INPUT CHANGE HANDLER
+  ====================================================
+  */
 
   const handleChange = (e) => {
-    setFields((f) => ({ ...f, [e.target.name]: e.target.value }));
-    if (errors[e.target.name])
-      setErrors((e) => {
-        const n = { ...e };
-        delete n[e.target.name];
-        return n;
+    setFields((f) => ({
+      ...f,
+      [e.target.name]: e.target.value,
+    }));
+
+    /* remove error if user corrects field */
+
+    if (errors[e.target.name]) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[e.target.name];
+        return newErrors;
       });
+    }
   };
 
-  const handleSubmit = async (e) => {
+  /*
+  ====================================================
+  FORM SUBMIT HANDLER
+  ====================================================
+  */
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+
     const errs = validate(fields);
+
     if (Object.keys(errs).length) {
       setErrors(errs);
       return;
     }
 
     setStatus("sending");
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(fields),
-      });
-      if (res.ok) {
-        setStatus("success");
-        setFields({ name: "", email: "", phone: "", subject: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      // Fallback: mailto
-      const body = encodeURIComponent(
-        `Name: ${fields.name}\nEmail: ${fields.email}\nPhone: ${fields.phone}\n\n${fields.message}`,
-      );
-      window.location.href = `mailto:info@lainfra.com?subject=${encodeURIComponent(fields.subject || "LA Infra Enquiry")}&body=${body}`;
+
+    const message = `
+New LA Infra Enquiry
+
+Name: ${fields.name}
+Phone: ${fields.phone}
+Email: ${fields.email}
+City: ${fields.city}
+
+Message:
+${fields.message}
+`;
+
+    const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+
+    setStatus("success");
+
+    setFields({
+      name: "",
+      email: "",
+      phone: "",
+      city: "",
+      message: "",
+    });
+
+    /*
+  =====================================
+  RESET FORM AFTER 6 SECONDS
+  =====================================
+  */
+
+    setTimeout(() => {
       setStatus("idle");
-    }
+    }, 12000);
   };
 
+  /*
+  ====================================================
+  INPUT STYLE FUNCTION
+  ====================================================
+  */
+
   const inputClass = (name) =>
-    `w-full bg-white border rounded-sm px-4 py-3 font-body text-sm text-forest placeholder-forest/30 
+    `w-full bg-white border rounded-sm px-4 py-3 font-body text-sm text-forest placeholder-forest/30
      focus:outline-none focus:ring-1 transition-colors
      ${
        errors[name]
@@ -87,17 +170,22 @@ export default function Contact() {
       <SEO
         title="Contact LA Infra – Enquire About Farmland Projects"
         description="Get in touch with LA Infra for enquiries about farmland investments, garden lands, estate developments, and eco-resort projects across Telangana and Andhra Pradesh."
-        url="https://lainfra.com/contact"
+        url="https://www.thelainfra.com/contact"
         breadcrumbs={[{ name: "Contact", path: "/contact" }]}
       />
 
-      {/* Hero */}
+      {/* =====================================================
+          HERO SECTION
+      ===================================================== */}
+
       <section
         className="bg-forest pt-32 pb-20 relative overflow-hidden"
         aria-label="Contact page header"
       >
         <div className="container-site relative z-10">
           <SectionReveal>
+            {/* Breadcrumb */}
+
             <nav aria-label="Breadcrumb" className="mb-6">
               <ol className="flex items-center gap-2 text-xs text-cream/40 font-body">
                 <li>
@@ -108,16 +196,21 @@ export default function Contact() {
                     Home
                   </Link>
                 </li>
+
                 <li className="text-cream/20">/</li>
+
                 <li className="text-cream/60">Contact</li>
               </ol>
             </nav>
+
             <span className="section-label text-brand-400 mb-4 block">
               Get In Touch
             </span>
+
             <h1 className="font-display text-display-lg text-cream mb-5">
               Contact LA Infra
             </h1>
+
             <p className="text-cream/60 font-body max-w-2xl leading-relaxed">
               Whether you are exploring land ownership opportunities, seeking
               more information about our developments, or interested in learning
@@ -131,14 +224,20 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Content */}
+      {/* =====================================================
+          MAIN CONTACT CONTENT
+      ===================================================== */}
+
       <section
         className="py-24 bg-cream"
         aria-labelledby="contact-form-heading"
       >
         <div className="container-site">
           <div className="grid lg:grid-cols-5 gap-14">
-            {/* Form */}
+            {/* =====================================================
+                CONTACT FORM
+            ===================================================== */}
+
             <div className="lg:col-span-3">
               <SectionReveal>
                 <h2
@@ -155,11 +254,14 @@ export default function Contact() {
                     className="bg-brand-50 border border-brand-300 rounded-sm p-8 text-center"
                   >
                     <div className="text-3xl mb-3">✅</div>
+
                     <h3 className="font-display text-xl text-forest mb-2">
-                      Message Received
+                      Message Ready
                     </h3>
+
                     <p className="text-forest/65 text-sm font-body">
-                    Thank you for contacting LA Infra. Our team will connect with you shortly.
+                      WhatsApp has opened with your enquiry message. Please
+                      press send to complete your enquiry.
                     </p>
                   </motion.div>
                 ) : (
@@ -169,7 +271,11 @@ export default function Contact() {
                     aria-label="Contact form"
                     className="space-y-5"
                   >
+                    {/* Name + Email */}
+
                     <div className="grid sm:grid-cols-2 gap-5">
+                      {/* NAME */}
+
                       <div>
                         <label
                           htmlFor="name"
@@ -177,28 +283,26 @@ export default function Contact() {
                         >
                           Full Name <span className="text-red-500">*</span>
                         </label>
+
                         <input
                           id="name"
                           name="name"
                           type="text"
-                          autoComplete="name"
                           placeholder="Your full name"
                           value={fields.name}
                           onChange={handleChange}
                           className={inputClass("name")}
-                          aria-describedby={
-                            errors.name ? "name-error" : undefined
-                          }
                         />
+
                         {errors.name && (
-                          <p
-                            id="name-error"
-                            className="text-red-500 text-xs mt-1"
-                          >
+                          <p className="text-red-500 text-xs mt-1">
                             {errors.name}
                           </p>
                         )}
                       </div>
+
+                      {/* EMAIL */}
+
                       <div>
                         <label
                           htmlFor="email"
@@ -206,29 +310,26 @@ export default function Contact() {
                         >
                           Email Address <span className="text-red-500">*</span>
                         </label>
+
                         <input
                           id="email"
                           name="email"
                           type="email"
-                          autoComplete="email"
                           placeholder="you@email.com"
                           value={fields.email}
                           onChange={handleChange}
                           className={inputClass("email")}
-                          aria-describedby={
-                            errors.email ? "email-error" : undefined
-                          }
                         />
+
                         {errors.email && (
-                          <p
-                            id="email-error"
-                            className="text-red-500 text-xs mt-1"
-                          >
+                          <p className="text-red-500 text-xs mt-1">
                             {errors.email}
                           </p>
                         )}
                       </div>
                     </div>
+
+                    {/* Phone + City */}
 
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
@@ -238,11 +339,11 @@ export default function Contact() {
                         >
                           Phone Number <span className="text-red-500">*</span>
                         </label>
+
                         <input
                           id="phone"
                           name="phone"
                           type="tel"
-                          autoComplete="tel"
                           placeholder="+91 XXXXX XXXXX"
                           value={fields.phone}
                           onChange={handleChange}
@@ -257,6 +358,7 @@ export default function Contact() {
                         >
                           City <span className="text-red-500">*</span>
                         </label>
+
                         <input
                           id="city"
                           name="city"
@@ -269,6 +371,8 @@ export default function Contact() {
                       </div>
                     </div>
 
+                    {/* MESSAGE */}
+
                     <div>
                       <label
                         htmlFor="message"
@@ -276,6 +380,7 @@ export default function Contact() {
                       >
                         Message <span className="text-red-500">*</span>
                       </label>
+
                       <textarea
                         id="message"
                         name="message"
@@ -284,26 +389,16 @@ export default function Contact() {
                         value={fields.message}
                         onChange={handleChange}
                         className={inputClass("message") + " resize-none"}
-                        aria-describedby={
-                          errors.message ? "message-error" : undefined
-                        }
                       />
+
                       {errors.message && (
-                        <p
-                          id="message-error"
-                          className="text-red-500 text-xs mt-1"
-                        >
+                        <p className="text-red-500 text-xs mt-1">
                           {errors.message}
                         </p>
                       )}
                     </div>
 
-                    {status === "error" && (
-                      <p className="text-red-500 text-sm font-body">
-                        Something went wrong. Please email us directly at
-                        info@lainfra.com.
-                      </p>
-                    )}
+                    {/* SUBMIT BUTTON */}
 
                     <motion.button
                       type="submit"
@@ -312,17 +407,12 @@ export default function Contact() {
                       whileTap={{ scale: 0.98 }}
                       className="btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      {status === "sending" ? (
-                        <>
-                          <span className="w-4 h-4 border-2 border-cream border-t-transparent rounded-full animate-spin" />
-                          Sending…
-                        </>
-                      ) : (
-                        "Send Message"
-                      )}
+                      {status === "sending"
+                        ? "Opening WhatsApp..."
+                        : "Send Message"}
                     </motion.button>
 
-                    <p className="text-xs text-forest/40 font-body text-center">
+                    {/* <p className="text-xs text-forest/40 font-body text-center">
                       We respect your privacy. Your information is never shared.{" "}
                       <Link
                         to="/privacy-policy"
@@ -330,7 +420,7 @@ export default function Contact() {
                       >
                         Privacy Policy
                       </Link>
-                    </p>
+                    </p> */}
                   </form>
                 )}
               </SectionReveal>
@@ -341,10 +431,13 @@ export default function Contact() {
               <SectionReveal delay={0.2}>
                 <div className="space-y-6">
                   <div>
-                   <h3 className="font-display text-xl font-semibold text-forest mb-5">Project Inquiries</h3>
-<p className="text-forest/60 text-sm mb-6">
-  For information about our developments, site visits, or investment opportunities, please contact our team.
-</p>
+                    <h3 className="font-display text-xl font-semibold text-forest mb-5">
+                      Project Inquiries
+                    </h3>
+                    <p className="text-forest/60 text-sm mb-6">
+                      For information about our developments, site visits, or
+                      investment opportunities, please contact our team.
+                    </p>
                     <div className="space-y-4">
                       {[
                         {
@@ -390,8 +483,8 @@ export default function Contact() {
                             </svg>
                           ),
                           label: "Phone",
-                          value: "78422 62261",
-                          href: "tel:7842262261",
+                          value: "+91 78422 62261",
+                          href: "tel:+917842262261",
                         },
                         {
                           icon: (
@@ -410,8 +503,8 @@ export default function Contact() {
                             </svg>
                           ),
                           label: "Email",
-                          value: "Contact@thelainfra.com",
-                          href: "mailto:Contact@thelainfra.com",
+                          value: "info@thelainfra.com",
+                          href: "mailto:info@thelainfra.com",
                         },
                         {
                           icon: (

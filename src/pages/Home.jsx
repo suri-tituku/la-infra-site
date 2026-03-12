@@ -11,10 +11,8 @@ import ProjectsGallery from "../components/ProjectsGallery";
 import LuxuryPillarsTimeline from "../components/LuxuryPillarsTimeline";
 import heroImage from "../assets/images/hero/hero-farmland.webp";
 import StorySection from "../components/StorySection";
-import kolliImg from "../assets/images/leaders/kolli-sambireddy-chairman-icon.png";
-import dayakarImg from "../assets/images/leaders/k-dayakar-reddy-founder-and-managing-director-icon.png";
-import anirudhImg from "../assets/images/leaders/anirudh-reddy-solipuram-director-icon.png";
-import mitraImg from "../assets/images/leaders/mitra-co-founder-and-chief-financial-officer-icon.png";
+import kolliImg from "../assets/images/leaders/kolli-sambireddy-chairman-icon.jpg";
+import dayakarImg from "../assets/images/leaders/k-dayakar-reddy-founder-and-managing-director-icon.jpg";
 //import LandMap from "../components/LandMap"
 const trustPillars = [
   {
@@ -162,7 +160,7 @@ export default function Home() {
       <SEO
         title="LA Infra – Ethical Real Estate & Land Development in Telangana"
         description="LA Infra specializes in farmland ventures, garden lands, estate developments, and eco-getaway projects."
-        url="https://lainfra.com"
+        url="https://www.thelainfra.com"
       />
       {/* HERO */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -308,14 +306,14 @@ active:scale-95 transition-all duration-300"
         </div>
       </section>{" "}
       <StorySection />
-      <ProjectsGallery />
+      {/* <ProjectsGallery /> */}
       <CTABanner
         heading="Ready to Invest in Ethical Land Development?"
         sub="Connect with our team to explore farmland and estate opportunities."
         primaryLabel="Contact Our Team"
         primaryTo="/contact"
-        secondaryLabel="Our Mission"
-        secondaryTo="/mission-vision"
+        secondaryLabel="Abous Us"
+        secondaryTo="/about-us"
       />
     </>
   );

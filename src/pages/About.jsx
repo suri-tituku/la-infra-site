@@ -28,7 +28,7 @@ export default function About() {
       <SEO
         title="About LA Infra | Ethical Land Development Company"
         description="LA Infra is a values-driven land development company specializing in farmland ventures, nature estates, and eco-retreat environments built with legal clarity and environmental responsibility."
-        url="https://lainfra.com/about-us"
+        url="https://www.thelainfra.com/about-us"
       />
 
       {/* HERO */}
@@ -393,13 +393,13 @@ export default function About() {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://lainfra.com/"
+      "item": "https://www.thelainfra.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "About",
-      "item": "https://lainfra.com/about-us"
+      "item": "https://www.thelainfra.com/about-us"
     }
   ]
 }

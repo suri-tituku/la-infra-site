@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logoLight from "../assets/images/logo/la-infra-logo.png";
-import logoDark from "../assets/images/logo/la-infra-logo.jpeg";
+import logoDark from "../assets/images/logo/la-infra-logo.jpg";
 // const navLinks = [
 //   { label: "Home", to: "/" },
 //   { label: "About", to: "/about-us" },
