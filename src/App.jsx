@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import WhatsAppButton from "./components/WhatsAppButton";
 import ScrollProgress from "./components/ScrollProgress";
-
+import BrochureDownloadButton from "./components/BrochureDownloadButton";
 //import InvestorPopup from "./components/InvestorPopup";
 import PageTransition from "./components/PageTransition";
 
@@ -87,6 +87,8 @@ export default function App() {
 
       {/* WhatsApp floating button */}
       <WhatsAppButton />
+      {/* Brochure Download */}
+      <BrochureDownloadButton />
     </>
   );
 }

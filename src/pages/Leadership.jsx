@@ -6,6 +6,7 @@ import chairmanImg from "../assets/images/leaders/kolli-sambireddy-chairman.jpg"
 import mdImg from "../assets/images/leaders/k-dayakar-reddy-founder-and-managing-director.jpg";
 import cofcfo from "../assets/images/leaders/mitra-co-founder-and-chief-financial-officer.jpg";
 import directorImg from "../assets/images/leaders/anirudh-reddy-solipuram-director.jpg";
+import sdiLogo from "../assets/images/partners/sdi-architecture.png";
 import SectionReveal from "../components/SectionReveal";
 import { useLocation } from "react-router-dom";
 import BreadcrumbSchema from "../components/BreadcrumbSchema";
@@ -26,7 +27,8 @@ export default function Leadership() {
   const leaderCards = [
     {
       id: "chairman",
-      name: "Kolli Sambireddy (K. S. Reddy)",
+      name: "Kolli Sambireddy",
+      suffix: "(K. S. Reddy)",
       role: "Chairman",
       img: chairmanImg,
       quote:
@@ -43,7 +45,8 @@ As Chairman of LA Infra, he provides strategic guidance to ensure that the compa
     },
     {
       id: "md",
-      name: "K. Dayakar Reddy (B.A., LL.B.)",
+      name: "K. Dayakar Reddy",
+      suffix: "(B.A., LL.B.)",
       role: "Founder & Managing Director",
       img: mdImg,
       quote: "Trust is the true foundation of every land investment.",
@@ -59,7 +62,8 @@ He strongly believes that long-term success in real estate is built on honesty, 
     },
     {
       id: "director",
-      name: "Anirudh Reddy Solipuram (S.A.R., MS USA)",
+      name: "Anirudh Reddy Solipuram",
+      suffix: "(S.A.R., MS USA)",
       role: "Director",
       img: directorImg,
       quote:
@@ -78,7 +82,8 @@ At LA Infra, he contributes to the vision of creating developments that integrat
     },
     {
       id: "cfo",
-      name: "Sanghamitra Reddy K (B.A., LL.B.)",
+      name: "Sanghamitra Reddy K",
+      suffix: "(B.A., LL.B.)",
       role: "Co-Founder & CFO",
       img: cofcfo,
       quote:
@@ -91,25 +96,25 @@ With a background in law, she plays an important role in overseeing financial st
 
 Her work helps ensure that the company’s developments are supported by strong financial discipline and sound legal frameworks, enabling projects to remain sustainable and transparent.`,
     },
+  ];
+
+  const operationsAdvisory = [
     {
       id: "coo",
       name: "D. Venkat Reddy",
       role: "Chief Operating Officer",
       img: null,
-      quote: "",
       content: `Operations leader responsible for project execution and development efficiency.
 
 He oversees operational execution across LA Infra projects ensuring discipline, efficiency, and quality standards.
 
 His role focuses on site supervision, resource coordination, and structured workflows for seamless project implementation.`,
     },
-
     {
       id: "advisor",
       name: "Bramashree Prashanth Sharma",
       role: "Spiritual & Vastu Advisor",
       img: null,
-      quote: "",
       content: `Spiritual guide and Vastu advisor supporting harmonious land development.
 
 He provides guidance through deep knowledge of Vastu Shastra and traditional systems.
@@ -117,6 +122,21 @@ He provides guidance through deep knowledge of Vastu Shastra and traditional sys
 His advisory ensures developments combine modern planning with traditional wisdom to create balanced and positive environments.`,
     },
   ];
+
+  const architecturePartners = [
+    {
+      id: "sdi",
+      name: "SDI Architecture",
+      role: "Architecture & Design Partner",
+      logo: sdiLogo,
+      content: `SDI serves as the architectural and design partner for LA Infra developments.
+
+The firm contributes expertise in master planning, sustainable architecture, and environmentally sensitive design approaches.
+
+Their work focuses on creating developments that harmonize built spaces with natural landscapes, ensuring that each project maintains ecological balance while delivering thoughtful spatial planning and design excellence.`,
+    },
+  ];
+
   const highlightStyle = {
     boxShadow: "0 0 0 6px rgba(251,191,36,0.35)",
     scale: 1.02,
@@ -350,7 +370,7 @@ His advisory ensures developments combine modern planning with traditional wisdo
                     <p className="font-display text-2xl text-forest">
                       Kolli Sambireddy
                     </p>
-                    <p className="text-brand-600">Chairman, LA Infra LLP</p>
+                    <p className="text-brand-600">Chairman, LA Infra</p>
                   </div>
                 </div>
               </motion.div>
@@ -455,7 +475,7 @@ His advisory ensures developments combine modern planning with traditional wisdo
                       K. Dayakar Reddy
                     </p>
                     <p className="text-brand-600">
-                      Founder & Managing Partner, LA Infra LLP
+                      Founder & Managing Partner, LA Infra
                     </p>
                   </div>
                 </div>
@@ -526,8 +546,13 @@ His advisory ensures developments combine modern planning with traditional wisdo
                   )}
                 </div>
                 {/* Name */}
-                <h3 className="mt-6 text-[18px] tracking-wide text-forest font-medium uppercase">
+                <h3 className="mt-6 text-[18px] tracking-wide text-forest font-medium uppercase leading-snug">
                   {leader.name}
+                  {leader.suffix && (
+                    <span className="block text-[14px] tracking-[0.25em] text-forest font-bold mt-1">
+                      {leader.suffix}
+                    </span>
+                  )}
                 </h3>
 
                 {/* Role */}
@@ -653,6 +678,131 @@ His advisory ensures developments combine modern planning with traditional wisdo
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* ================= ARCHITECTURE & DESIGN PARTNER ================= */}
+      <section className="py-16 bg-cream">
+        <SectionReveal>
+          <div className="text-center mb-14">
+            <h2 className="section-heading">ARCHITECTURE & DESIGN PARTNER</h2>
+
+            <div className="flex items-center justify-center gap-6 my-10">
+              <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+
+              <div className="relative flex items-center justify-center">
+                <div className="w-3 h-3 rotate-45 border border-amber-400" />
+                <div className="absolute w-1.5 h-1.5 rotate-45 bg-amber-400" />
+              </div>
+
+              <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+            </div>
+          </div>
+        </SectionReveal>
+
+        <div className="container-site max-w-2xl">
+          {architecturePartners.map((partner, i) => (
+            <motion.div
+              key={partner.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="relative rounded-xl overflow-hidden border border-amber-200 shadow-lg"
+            >
+              <div className="relative bg-black py-20 flex items-center justify-center">
+                <motion.div
+                  className="absolute inset-0 opacity-50 bg-[url('https://www.transparenttextures.com/patterns/cross-scratches.png')]"
+                  animate={{ backgroundPosition: ["0px 0px", "80px 80px"] }}
+                  transition={{
+                    duration: 9,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                />
+
+                <a
+                  href="https://www.sdi.archi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Visit Partner Website"
+                  className="relative z-10 cursor-pointer"
+                >
+                  <motion.img
+                    src={partner.logo}
+                    alt="SDI Architecture"
+                    className="h-28 md:h-32 w-auto object-contain drop-shadow-xl"
+                    animate={{ y: [0, -7, 0] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                  />
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= OPERATIONS & ADVISORY ================= */}
+      <section className="py-16  bg-white/70">
+        <SectionReveal>
+          <div className="text-center mb-14">
+            <h2 className="section-heading">OPERATIONS & ADVISORY</h2>
+
+            <div className="flex items-center justify-center gap-6 my-10">
+              <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+
+              <div className="relative flex items-center justify-center">
+                <div className="w-3 h-3 rotate-45 border border-amber-400" />
+                <div className="absolute w-1.5 h-1.5 rotate-45 bg-amber-400" />
+              </div>
+
+              <div className="h-[1px] w-28 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+            </div>
+          </div>
+        </SectionReveal>
+
+        <div className="container-site max-w-8xl">
+          <div className="grid md:grid-cols-2 gap-12">
+            {operationsAdvisory.map((leader, i) => (
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{
+                  y: -8,
+                  boxShadow: "0 30px 60px rgba(0,0,0,0.25)",
+                }}
+                transition={{ duration: 0.6 }}
+                key={leader.id}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl shadow-lg border border-amber-100 p-10 relative overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                {/* Gold accent line */}
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+
+                {/* Role */}
+                <p className="text-xs tracking-[0.35em] text-amber-700 uppercase mb-4">
+                  {leader.role}
+                </p>
+
+                {/* Name */}
+                <h3 className="font-display text-2xl text-forest mb-6">
+                  {leader.name}
+                </h3>
+
+                {/* Divider */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+                  <div className="w-2 h-2 rotate-45 bg-amber-400" />
+                  <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+                </div>
+
+                {/* Content */}
+                <p className="text-forest/70 leading-relaxed whitespace-pre-line text-sm">
+                  {leader.content}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ===== Gold Ornament Divider ===== */}
       {/* <div className="flex items-center justify-center gap-6 my-5">

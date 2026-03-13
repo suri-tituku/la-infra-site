@@ -31,30 +31,33 @@ export default function LeadershipCard({
         {/* Header */}
         <div className="flex items-start gap-5 mb-6">
           {/* Image */}
-          <div className="relative">
+          <div className="relative shrink-0">
+            {/* Glow */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-amber-200/40 to-transparent blur-md" />
 
-            <img
-              src={image}
-              alt={name}
-              className="relative w-40 h-40 object-cover rounded-full 
-              ring-[5px] ring-[#f2efe8] shadow-md"
-            />
+            {/* Image Container */}
+            <div className="relative w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden ring-[5px] ring-[#f2efe8] shadow-md">
+              <img
+                src={image}
+                alt={name}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
 
           {/* Name + Title */}
           <div>
             <h3 className="font-display text-[24px] text-forest leading-tight tracking-wide">
               {name}
-
+              <br />
               {suffix && (
-                <span className="text-sm font-body text-brand-600 ml-1.5">
+                <span className="text-sm font-body text-brand-600 ml-1.0">
                   ({suffix})
                 </span>
               )}
             </h3>
 
-            <p className="text-brand-700 text-xs font-semibold tracking-[0.35em] uppercase mt-1">
+            <p className="text-brand-700 text-xs font-semibold tracking-[0.12em] uppercase mt-1">
               {title}
             </p>
           </div>
