@@ -12,7 +12,7 @@ import LuxuryPillarsTimeline from "../components/LuxuryPillarsTimeline";
 import heroImage from "../assets/images/hero/hero-farmland.webp";
 import StorySection from "../components/StorySection";
 import kolliImg from "../assets/images/leaders/kolli-sambireddy-chairman-icon.jpg";
-import dayakarImg from "../assets/images/leaders/k-dayakar-reddy-founder-and-managing-director-icon.jpg";
+import dayakarImg from "../assets/images/leaders/k-dayakar-reddy-founder-and-managing-director-icon.webp";
 import RealEstateSchema from "../components/RealEstateSchema";
 import BreadcrumbSchema from "../components/BreadcrumbSchema";
 //import LandMap from "../components/LandMap"
