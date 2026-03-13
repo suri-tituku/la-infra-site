@@ -1,0 +1,1 @@
+import{j as e}from"./motion-CfOeWQ8J.js";import{H as m}from"./Helmet-CmXxm8V1.js";function p({items:r}){const s={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:r.map((t,i)=>({"@type":"ListItem",position:i+1,name:t.name,item:t.url}))};return e.jsx(m,{children:e.jsx("script",{type:"application/ld+json",children:JSON.stringify(s)})})}export{p as B};
