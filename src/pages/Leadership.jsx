@@ -475,7 +475,7 @@ Their work focuses on creating developments that harmonize built spaces with nat
                       K. Dayakar Reddy
                     </p>
                     <p className="text-brand-600">
-                      Founder & Managing Partner, LA Infra
+                      Founder & Managing Director, LA Infra
                     </p>
                   </div>
                 </div>

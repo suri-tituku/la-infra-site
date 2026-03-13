@@ -243,7 +243,7 @@ active:scale-95 transition-all duration-300"
       <StatsSection />
       <LuxuryPillarsTimeline />
       {/* ===== FOUNDER QUOTE ===== */}
-      <section className="relative py-20 bg-cream overflow-hidden">
+      <section className="relative py-12 bg-cream overflow-hidden">
         {/* subtle texture */}
         <div
           className="absolute inset-0 opacity-[0.03]"
@@ -290,7 +290,7 @@ active:scale-95 transition-all duration-300"
         </div>
       </section>
       {/* LEADERSHIP */}
-      <section className="py-24 bg-cream">
+      <section className="py-16 bg-cream">
         <div className="container-site">
           <SectionReveal>
             <div className="text-center mb-14">
