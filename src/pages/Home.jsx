@@ -13,8 +13,6 @@ import heroImage from "../assets/images/hero/hero-farmland.webp";
 import StorySection from "../components/StorySection";
 import kolliImg from "../assets/images/leaders/kolli-sambireddy-chairman-icon.jpg";
 import dayakarImg from "../assets/images/leaders/k-dayakar-reddy-founder-and-managing-director-icon.jpg";
-import RealEstateSchema from "../components/RealEstateSchema";
-import BreadcrumbSchema from "../components/BreadcrumbSchema";
 import PremiumVideoPlayer from "../components/PremiumVideoPlayer";
 import video from "../assets/videos/redwood-retreat-and-estates-mega-farm-land-project-at-kamalapur-kalburgi-karnataka.mp4";
 
@@ -163,11 +161,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="LA Infra – Ethical Real Estate & Land Development"
-        description="LA Infra specializes in farmland ventures, garden lands, estate developments, and eco-getaway projects."
+        title="Premium Farmland & Ethical Land Investment Near Hyderabad"
+        description="LA Infra develops premium farmland, estate plots, and sustainable land investment opportunities near Hyderabad across Telangana, Andhra Pradesh, and Karnataka. Invest in secure, transparent land assets with long-term value."
         url="https://thelainfra.com"
       />
-      <RealEstateSchema />
       {/* HERO */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background */}
@@ -312,7 +309,7 @@ active:scale-95 transition-all duration-300"
         </div>
       </section>{" "}
       <StorySection />
-    <PremiumVideoPlayer src={video} />
+      <PremiumVideoPlayer src={video} />
       {/* <ProjectsGallery /> */}
       <CTABanner
         heading="Ready to Invest in Ethical Land Development?"

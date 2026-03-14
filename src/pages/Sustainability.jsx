@@ -74,12 +74,23 @@ export default function Sustainability() {
   return (
     <>
       <SEO
-        title="Sustainability"
-        description="LA Infra promotes environmentally responsible land development."
+        title="Sustainable Farmland Development | LA Infra"
+        description="Learn how LA Infra promotes sustainable farmland development through eco-conscious planning, natural land preservation, and responsible environmental practices."
         url="https://thelainfra.com/sustainability"
         breadcrumbs={[{ name: "Sustainability", path: "/sustainability" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "LA Infra",
+          description:
+            "Sustainable farmland and land development company focused on environmental responsibility.",
+          knowsAbout: [
+            "Sustainable Land Development",
+            "Farmland Stewardship",
+            "Eco Land Planning",
+          ],
+        }}
       />
-
       {/* HERO */}
       <section className="relative bg-forest pt-28 pb-14 text-cream overflow-hidden">
         <GoldParticles />
@@ -411,30 +422,6 @@ export default function Sustainability() {
           </div>
         </section>
       </main>
-
-      {/* SEO Breadcrumb Schema */}
-      <script type="application/ld+json">
-        {`
-{
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
-  {
-   "@type": "ListItem",
-   "position": 1,
-   "name": "Home",
-   "item": "https://www.thelainfra.com/"
-  },
-  {
-   "@type": "ListItem",
-   "position": 2,
-   "name": "Sustainability",
-   "item": "https://www.thelainfra.com/sustainability"
-  }
- ]
-}
-`}
-      </script>
     </>
   );
 }

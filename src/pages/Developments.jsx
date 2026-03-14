@@ -97,10 +97,32 @@ export default function Developments() {
   return (
     <>
       <SEO
-        title="Land Developments"
-        description="Explore farmland and estate development projects by LA Infra."
+        title="Farmland & Estate Land Developments Near Hyderabad | LA Infra"
+        description="Explore farmland investment and estate land development projects by LA Infra including Red Wood Retreats near Kamlapur, close to Hyderabad."
         url="https://thelainfra.com/developments"
         breadcrumbs={[{ name: "Developments", path: "/developments" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "RealEstateListing",
+          name: "Red Wood Retreats",
+          description:
+            "Nature-inspired farmland retreat project near Kamlapur designed as a low-density nature estate.",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Kamlapur",
+            addressRegion: "Karnataka",
+            addressCountry: "India",
+          },
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "INR",
+            availability: "https://schema.org/InStock",
+          },
+          provider: {
+            "@type": "Organization",
+            name: "LA Infra",
+          },
+        }}
       />
       <BreadcrumbSchema
         items={[
@@ -454,7 +476,7 @@ export default function Developments() {
             <SectionReveal>
               <h2 className="font-display text-3xl mb-6">Current Project</h2>
 
-              <h3 className="font-display text-2xl mb-4">Red wood Retreats</h3>
+              <h3 className="font-display text-2xl mb-4">Redwood Retreats</h3>
 
               <p className="mb-6 leading-relaxed">
                 Red Wood Retreats is a nature-inspired land retreat located near

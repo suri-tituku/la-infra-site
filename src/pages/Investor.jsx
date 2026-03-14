@@ -79,10 +79,21 @@ export default function Investor() {
   return (
     <>
       <SEO
-        title="Investor Relations"
-        description="Investment opportunities with LA Infra farmland and estate developments."
+        title="Farmland Investment Opportunities | LA Infra Investor Relations"
+        description="Explore farmland investment opportunities with LA Infra including secure land ownership, ethical land development, and estate projects near Hyderabad."
         url="https://thelainfra.com/investor"
         breadcrumbs={[{ name: "Investor", path: "/investor" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "FinancialService",
+          name: "LA Infra Farmland Investment",
+          provider: {
+            "@type": "Organization",
+            name: "LA Infra",
+          },
+          areaServed: "Telangana, Karnataka",
+          serviceType: "Farmland Investment",
+        }}
       />
 
       {/* HERO */}
@@ -139,9 +150,10 @@ export default function Investor() {
           <section className="py-6 max-w-4xl">
             <SectionReveal>
               <p className="mb-6 leading-relaxed text-cream/70">
-                Land has long been regarded as one of the most stable and
-                enduring forms of investment. However, responsible land
-                ownership requires clarity, transparency, and careful planning.
+                Farmland has long been regarded as one of the most stable and
+                enduring forms of long-term investment. However, responsible
+                land ownership requires clarity, transparency, and careful
+                planning.
               </p>
 
               <p className="mb-6 leading-relaxed text-cream/70">
@@ -483,30 +495,6 @@ export default function Investor() {
           </div>
         </section>
       </main>
-
-      {/* Breadcrumb Schema */}
-      <script type="application/ld+json">
-        {`
-{
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
-  {
-   "@type": "ListItem",
-   "position": 1,
-   "name": "Home",
-   "item": "https://www.thelainfra.com/"
-  },
-  {
-   "@type": "ListItem",
-   "position": 2,
-   "name": "Investor",
-   "item": "https://www.thelainfra.com/investor"
-  }
- ]
-}
-`}
-      </script>
     </>
   );
 }

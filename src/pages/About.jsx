@@ -3,7 +3,6 @@ import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import GoldParticles from "../components/GoldParticles";
 import { Leaf, Sprout, Trees } from "lucide-react";
-import BreadcrumbSchema from "../components/BreadcrumbSchema";
 export default function About() {
   const items = [
     {
@@ -26,16 +25,10 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About LA Infra"
-        description="Learn about LA Infra's ethical land development philosophy."
+        title="About LA Infra – Ethical Farmland & Land Development Company"
+        description="Learn about LA Infra, a Hyderabad-based ethical land development company specializing in farmland investments, nature estate communities, and eco-retreat projects across Telangana, Andhra Pradesh, and Karnataka."
         url="https://thelainfra.com/about-us"
         breadcrumbs={[{ name: "About Us", path: "/about-us" }]}
-      />
-      <BreadcrumbSchema
-        items={[
-          { name: "Home", url: "https://thelainfra.com" },
-          { name: "About Us", url: "https://thelainfra.com/about-us" },
-        ]}
       />
       {/* HERO */}
       <section className="relative bg-forest pt-28 pb-12 text-cream overflow-hidden">
@@ -389,28 +382,6 @@ export default function About() {
           />
         </div>
       </section>
-      <script type="application/ld+json">
-        {`
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.thelainfra.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "About",
-      "item": "https://www.thelainfra.com/about-us"
-    }
-  ]
-}
-`}
-      </script>
     </>
   );
 }

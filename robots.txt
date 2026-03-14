@@ -3,11 +3,11 @@
 # Controls how search engines crawl the site
 # ==========================================
 
-# Allow all search engine bots to crawl the site
+# Allow all search engines
 User-agent: *
 Allow: /
 
-# Explicitly allow major search engines
+# Allow major search engines explicitly
 User-agent: Googlebot
 Allow: /
 
@@ -20,7 +20,7 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-# Block sensitive or non-public paths (optional safety)
+# Block sensitive folders
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
@@ -29,3 +29,6 @@ Disallow: /src/
 
 # Sitemap location
 Sitemap: https://thelainfra.com/sitemap.xml
+
+# Preferred domain
+Host: https://thelainfra.com

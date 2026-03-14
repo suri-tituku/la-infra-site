@@ -147,7 +147,7 @@ ${fields.message}
 
     setTimeout(() => {
       setStatus("idle");
-    }, 12000);
+    }, 6000);
   };
 
   /*
@@ -168,10 +168,26 @@ ${fields.message}
   return (
     <>
       <SEO
-        title="Contact LA Infra"
-        description="Connect with LA Infra for farmland investment opportunities."
+        title="Contact LA Infra | Farmland Investment Enquiries Hyderabad"
+        description="Contact LA Infra in Hyderabad for farmland investment enquiries, site visits, and estate land development opportunities across Telangana and Karnataka."
         url="https://thelainfra.com/contact"
         breadcrumbs={[{ name: "Contact", path: "/contact" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "RealEstateAgent",
+          name: "LA Infra",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Road No. 36, Jubilee Hills",
+            addressLocality: "Hyderabad",
+            addressRegion: "Telangana",
+            postalCode: "500033",
+            addressCountry: "India",
+          },
+          telephone: "+91 9666088822",
+          email: "info@thelainfra.com",
+          url: "https://thelainfra.com",
+        }}
       />
 
       {/* =====================================================
@@ -212,7 +228,7 @@ ${fields.message}
             </h1>
 
             <p className="text-cream/60 font-body max-w-2xl leading-relaxed">
-              Whether you are exploring land ownership opportunities, seeking
+             Whether you are exploring farmland investment or land ownership opportunities, seeking
               more information about our developments, or interested in learning
               about upcoming projects, our team will be happy to assist you.
               <br />

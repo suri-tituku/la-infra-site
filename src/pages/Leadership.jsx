@@ -9,7 +9,6 @@ import directorImg from "../assets/images/leaders/anirudh-reddy-solipuram-direct
 import sdiLogo from "../assets/images/partners/sdi-architecture.png";
 import SectionReveal from "../components/SectionReveal";
 import { useLocation } from "react-router-dom";
-import BreadcrumbSchema from "../components/BreadcrumbSchema";
 
 export default function Leadership() {
   const location = useLocation();
@@ -199,17 +198,10 @@ Their work focuses on creating developments that harmonize built spaces with nat
   return (
     <>
       <SEO
-        title="Leadership"
-        description="Meet the leadership team guiding LA Infra's ethical land development vision."
+        title="Leadership Team | LA Infra Ethical Land Development"
+        description="Meet the leadership team behind LA Infra including Chairman Kolli Sambireddy and Founder K. Dayakar Reddy guiding ethical farmland investment and land development projects across Telangana, Andhra Pradesh, and Karnataka."
         url="https://thelainfra.com/leadership"
         breadcrumbs={[{ name: "Leadership", path: "/leadership" }]}
-      />
-
-      <BreadcrumbSchema
-        items={[
-          { name: "Home", url: "https://thelainfra.com" },
-          { name: "Leadership", url: "https://thelainfra.com/leadership" },
-        ]}
       />
 
       {/* HERO — SAME STYLE AS ABOUT PAGE */}
@@ -293,7 +285,7 @@ Their work focuses on creating developments that harmonize built spaces with nat
                   <div className="relative rounded-[18px] overflow-hidden shadow-2xl">
                     <img
                       src={chairmanImg}
-                      alt="Kolli Sambireddy"
+                      alt="Kolli Sambireddy Chairman LA Infra"
                       className="w-full h-[600px] object-cover"
                     />
                   </div>
@@ -486,7 +478,7 @@ Their work focuses on creating developments that harmonize built spaces with nat
                   <div className="relative rounded-[18px] overflow-hidden shadow-2xl">
                     <img
                       src={mdImg}
-                      alt="Founder LA Infra"
+                      alt="K. Dayakar Reddy Founder & Managing Director, LA Infra"
                       className="w-full h-[600px] object-cover"
                     />
                   </div>
@@ -534,7 +526,7 @@ Their work focuses on creating developments that harmonize built spaces with nat
                   {leader.img ? (
                     <img
                       src={leader.img}
-                      alt={leader.name}
+                      alt={`${leader.name} ${leader.role} LA Infra`}
                       className="w-full h-[420px] object-cover transition-transform duration-700 group-hover:scale-[0.97]"
                     />
                   ) : (
@@ -929,28 +921,6 @@ Their work focuses on creating developments that harmonize built spaces with nat
           />
         </div>
       </section>
-      <script type="application/ld+json">
-        {`
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.thelainfra.com/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Leadership",
-      "item": "https://www.thelainfra.com/leadership"
-    }
-  ]
-}
-`}
-      </script>
     </>
   );
 }
