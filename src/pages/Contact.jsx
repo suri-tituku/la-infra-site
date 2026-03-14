@@ -169,24 +169,46 @@ ${fields.message}
     <>
       <SEO
         title="Contact LA Infra | Farmland Investment Enquiries Hyderabad"
-        description="Contact LA Infra in Hyderabad for farmland investment enquiries, site visits, and estate land development opportunities across Telangana and Karnataka."
+        description="Contact LA Infra in Hyderabad for farmland investment enquiries, site visits, and estate land development opportunities across Telangana, Andhra Pradesh, and Karnataka."
         url="https://thelainfra.com/contact"
         breadcrumbs={[{ name: "Contact", path: "/contact" }]}
         schema={{
           "@context": "https://schema.org",
           "@type": "RealEstateAgent",
           name: "LA Infra",
+          url: "https://thelainfra.com",
+          telephone: "+919666088822",
+          email: "info@thelainfra.com",
+          hasMap: "https://maps.google.com/?q=LA+Infra+Jubilee+Hills+Hyderabad",
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: "17.43148327128266",
+            longitude: "78.4078466676178",
+          },
           address: {
             "@type": "PostalAddress",
-            streetAddress: "Road No. 36, Jubilee Hills",
+            streetAddress:
+              "4th Floor, Piller 36 Square, H.No.8-2-293/82/A/481/IV-2, Road No. 36, Jubilee Hills",
             addressLocality: "Hyderabad",
             addressRegion: "Telangana",
             postalCode: "500033",
-            addressCountry: "India",
+            addressCountry: "IN",
           },
-          telephone: "+91 9666088822",
-          email: "info@thelainfra.com",
-          url: "https://thelainfra.com",
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+              ],
+              opens: "09:00",
+              closes: "18:00",
+            },
+          ],
         }}
       />
 
@@ -228,9 +250,10 @@ ${fields.message}
             </h1>
 
             <p className="text-cream/60 font-body max-w-2xl leading-relaxed">
-             Whether you are exploring farmland investment or land ownership opportunities, seeking
-              more information about our developments, or interested in learning
-              about upcoming projects, our team will be happy to assist you.
+              Whether you are exploring farmland investment or land ownership
+              opportunities, seeking more information about our developments, or
+              interested in learning about upcoming projects, our team will be
+              happy to assist you.
               <br />
               <br />
               We welcome your inquiries and look forward to helping you take the
@@ -553,7 +576,10 @@ ${fields.message}
                           key={i}
                           className="flex gap-4 p-4 bg-brand-50/50 border border-brand-100 rounded-[5px]"
                         >
-                          <div className="w-8 h-8 rounded-sm bg-brand-100 flex items-center justify-center text-brand-700 shrink-0">
+                          <div
+                            className="w-8 h-8 rounded-sm bg-brand-100 flex items-center justify-center text-brand-700 shrink-0"
+                            aria-hidden="true"
+                          >
                             {item.icon}
                           </div>
                           <div>

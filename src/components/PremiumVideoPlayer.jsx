@@ -176,6 +176,8 @@ export default function PremiumVideoPlayer({ src }) {
             src={src}
             className="w-full"
             onClick={togglePlay}
+            aria-label="Redwood Retreats farmland project walkthrough video"
+            title="Redwood Retreats — Mega Farmland Project at Kamalapur, Karnataka"
           />
 
           {/* CENTER PLAY BUTTON */}
@@ -186,8 +188,8 @@ export default function PremiumVideoPlayer({ src }) {
               className="absolute inset-0 flex items-center justify-center"
             >
               <div className="bg-white/[0.02] backdrop-blur-xl border border-white/30 rounded-full p-10 shadow-lg opacity-60 hover:opacity-100 hover:scale-110 transition">
-  <Play className="text-white w-12 h-12" />
-</div>
+                <Play className="text-white w-12 h-12" />
+              </div>
             </button>
           )}
 

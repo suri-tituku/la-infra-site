@@ -202,6 +202,26 @@ Their work focuses on creating developments that harmonize built spaces with nat
         description="Meet the leadership team behind LA Infra including Chairman Kolli Sambireddy and Founder K. Dayakar Reddy guiding ethical farmland investment and land development projects across Telangana, Andhra Pradesh, and Karnataka."
         url="https://thelainfra.com/leadership"
         breadcrumbs={[{ name: "Leadership", path: "/leadership" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          itemListElement: [
+            {
+              "@type": "Person",
+              name: "K. Dayakar Reddy",
+              jobTitle: "Founder & Managing Director",
+              worksFor: { "@type": "Organization", name: "LA Infra" },
+              url: "https://thelainfra.com/leadership#md",
+            },
+            {
+              "@type": "Person",
+              name: "Kolli Sambireddy",
+              jobTitle: "Chairman",
+              worksFor: { "@type": "Organization", name: "LA Infra" },
+              url: "https://thelainfra.com/leadership#chairman",
+            },
+          ],
+        }}
       />
 
       {/* HERO — SAME STYLE AS ABOUT PAGE */}

@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 import GoldParticles from "../components/GoldParticles";
-
+import { Link } from "react-router-dom";
 /* Scroll Animation */
 const reveal = {
   hidden: { opacity: 0, y: 60 },
@@ -74,20 +74,28 @@ export default function Sustainability() {
   return (
     <>
       <SEO
-        title="Sustainable Farmland Development | LA Infra"
-        description="Learn how LA Infra promotes sustainable farmland development through eco-conscious planning, natural land preservation, and responsible environmental practices."
+        title="Sustainable Farmland Development & Eco Land Planning | LA Infra"
+        description="Discover how LA Infra promotes sustainable farmland development through eco-conscious planning, natural land preservation, organic farming, and responsible environmental practices across Telangana and Karnataka."
         url="https://thelainfra.com/sustainability"
         breadcrumbs={[{ name: "Sustainability", path: "/sustainability" }]}
         schema={{
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "LA Infra",
+          url: "https://thelainfra.com",
           description:
-            "Sustainable farmland and land development company focused on environmental responsibility.",
+            "Sustainable farmland and land development company focused on environmental responsibility across Telangana, Andhra Pradesh, and Karnataka.",
           knowsAbout: [
             "Sustainable Land Development",
             "Farmland Stewardship",
             "Eco Land Planning",
+            "Organic Farming",
+            "Nature Estate Development",
+            "Responsible Agricultural Land Use",
+          ],
+          sameAs: [
+            "https://www.facebook.com/people/Thelainfra/61583035360906/",
+            "https://www.instagram.com/thelainfra/",
           ],
         }}
       />
@@ -108,12 +116,12 @@ export default function Sustainability() {
           >
             <ol className="flex items-center gap-2 text-sm font-body">
               <li>
-                <a
-                  href="/"
+               <Link
+                  to="/"
                   className="text-cream/40 hover:text-brand-400 transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </li>
 
               <li className="text-cream/20">/</li>
@@ -266,7 +274,10 @@ export default function Sustainability() {
                     className="relative pl-24 group"
                   >
                     {/* icon */}
-                    <div className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-xl group-hover:scale-110 transition">
+                   <div
+                    className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-xl group-hover:scale-110 transition"
+                    aria-hidden="true"
+                  >
                       {item.icon}
                     </div>
 
@@ -327,7 +338,7 @@ export default function Sustainability() {
                   className="relative pl-24 group"
                 >
                   {/* icon circle */}
-                  <div className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-xl group-hover:scale-110 transition">
+                  <div className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-xl group-hover:scale-110 transition" aria-hidden="true">
                     {item.icon}
                   </div>
 

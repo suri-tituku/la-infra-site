@@ -15,7 +15,7 @@ import kolliImg from "../assets/images/leaders/kolli-sambireddy-chairman-icon.jp
 import dayakarImg from "../assets/images/leaders/k-dayakar-reddy-founder-and-managing-director-icon.jpg";
 import PremiumVideoPlayer from "../components/PremiumVideoPlayer";
 import video from "../assets/videos/redwood-retreat-and-estates-mega-farm-land-project-at-kamalapur-kalburgi-karnataka.mp4";
-
+import { Helmet } from "react-helmet-async";
 //import LandMap from "../components/LandMap"
 const trustPillars = [
   {
@@ -164,7 +164,79 @@ export default function Home() {
         title="Premium Farmland & Ethical Land Investment Near Hyderabad"
         description="LA Infra develops premium farmland, estate plots, and sustainable land investment opportunities near Hyderabad across Telangana, Andhra Pradesh, and Karnataka. Invest in secure, transparent land assets with long-term value."
         url="https://thelainfra.com"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": ["RealEstateAgent", "LocalBusiness"],
+          name: "LA Infra",
+          url: "https://thelainfra.com",
+          telephone: "+919666088822",
+          email: "info@thelainfra.com",
+          image: "https://thelainfra.com/og-image.jpg",
+          priceRange: "₹₹₹",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress:
+              "4th Floor, Piller 36 Square, Road No. 36, Jubilee Hills",
+            addressLocality: "Hyderabad",
+            addressRegion: "Telangana",
+            postalCode: "500033",
+            addressCountry: "IN",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: "17.43148327128266",
+            longitude: "78.4078466676178",
+          },
+          areaServed: ["Telangana", "Andhra Pradesh", "Karnataka"],
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+              ],
+              opens: "09:00",
+              closes: "18:00",
+            },
+          ],
+          founder: {
+            "@type": "Person",
+            name: "K. Dayakar Reddy",
+            jobTitle: "Founder & Managing Director",
+          },
+        }}
       />
+      {/* VIDEO OBJECT SCHEMA */}
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            name: "Redwood Retreats — Mega Farmland Project at Kamalapur, Kalaburagi, Karnataka",
+            description:
+              "A walkthrough of Redwood Retreats, LA Infra's nature-inspired farmland estate project near Kamalapur, approximately 30 km from Kalaburagi (Gulbarga), Karnataka.",
+            thumbnailUrl: "https://thelainfra.com/og-image.jpg",
+            uploadDate: "2024-01-01",
+            duration: "PT3M",
+            contentUrl:
+              "https://thelainfra.com/videos/redwood-retreat-and-estates-mega-farm-land-project-at-kamalapur-kalburgi-karnataka.mp4",
+            embedUrl: "https://thelainfra.com/developments",
+            publisher: {
+              "@type": "Organization",
+              name: "LA Infra",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://thelainfra.com/logo.jpg",
+              },
+              url: "https://thelainfra.com",
+            },
+          })}
+        </script>
+      </Helmet>
       {/* HERO */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background */}
@@ -273,9 +345,9 @@ active:scale-95 transition-all duration-300"
             </blockquote>
 
             {/* Author */}
-            <p className="mt-8 text-sm tracking-[0.35em] text-amber-700 uppercase">
+            <cite className="mt-8 text-sm tracking-[0.35em] text-amber-700 uppercase not-italic block">
               — K. Dayakar Reddy
-            </p>
+            </cite>
             <p className="text-forest/50 text-xs tracking-wider mt-2">
               Founder & Managing Director
             </p>

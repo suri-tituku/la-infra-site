@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 import GoldParticles from "../components/GoldParticles";
@@ -79,19 +80,23 @@ export default function Investor() {
   return (
     <>
       <SEO
-        title="Farmland Investment Opportunities | LA Infra Investor Relations"
-        description="Explore farmland investment opportunities with LA Infra including secure land ownership, ethical land development, and estate projects near Hyderabad."
+        title="Farmland Investment Opportunities Near Hyderabad | LA Infra"
+        description="Explore ethical farmland investment opportunities with LA Infra — secure land ownership, clear-title developments, and estate projects across Telangana, Andhra Pradesh, and Karnataka."
         url="https://thelainfra.com/investor"
         breadcrumbs={[{ name: "Investor", path: "/investor" }]}
         schema={{
           "@context": "https://schema.org",
           "@type": "FinancialService",
           name: "LA Infra Farmland Investment",
+          url: "https://thelainfra.com/investor",
+          description:
+            "Ethical farmland investment and land development opportunities near Hyderabad across Telangana, Andhra Pradesh, and Karnataka.",
           provider: {
             "@type": "Organization",
             name: "LA Infra",
+            url: "https://thelainfra.com",
           },
-          areaServed: "Telangana, Karnataka",
+          areaServed: ["Telangana", "Andhra Pradesh", "Karnataka"],
           serviceType: "Farmland Investment",
         }}
       />
@@ -113,12 +118,12 @@ export default function Investor() {
           >
             <ol className="flex items-center gap-2 text-sm font-body">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="text-cream/40 hover:text-brand-400 transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </li>
 
               <li className="text-cream/20">/</li>
@@ -301,7 +306,10 @@ export default function Investor() {
                   className="relative pl-24 group"
                 >
                   {/* icon */}
-                  <div className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-xl group-hover:scale-110 transition">
+                  <div
+                    className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-xl group-hover:scale-110 transition"
+                    aria-hidden="true"
+                  >
                     {item.icon}
                   </div>
 
@@ -360,7 +368,10 @@ export default function Investor() {
                     className="relative pl-24 group"
                   >
                     {/* icon */}
-                    <div className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-xl group-hover:scale-110 transition">
+                    <div
+                      className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-xl group-hover:scale-110 transition"
+                      aria-hidden="true"
+                    >
                       {item.icon}
                     </div>
 

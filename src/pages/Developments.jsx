@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 import GoldParticles from "../components/GoldParticles";
 import { Trees, Mountain, Map, Sprout, HeartPulse } from "lucide-react";
-import BreadcrumbSchema from "../components/BreadcrumbSchema";
 /* Scroll Animation */
 const reveal = {
   hidden: { opacity: 0, y: 60 },
@@ -27,22 +27,22 @@ const SectionReveal = ({ children }) => (
 
 const ecoRetreatFeatures = [
   {
-    icon: <Trees size={20} />,
+    icon: <Trees size={20} aria-hidden="true" />,
     title: "Nature-Focused Retreats",
     body: "Retreat environments designed to reconnect people with natural landscapes and outdoor living.",
   },
   {
-    icon: <Mountain size={20} />,
+    icon: <Mountain size={20} aria-hidden="true" />,
     title: "Peaceful Landscapes",
     body: "Natural surroundings that provide calm environments away from dense urban development.",
   },
   {
-    icon: <Sprout size={20} />,
+    icon: <Sprout size={20} aria-hidden="true" />,
     title: "Eco-Conscious Development",
     body: "Development practices that respect environmental balance and sustainable land use.",
   },
   {
-    icon: <HeartPulse size={20} />,
+    icon: <HeartPulse size={20} aria-hidden="true" />,
     title: "Wellness-Oriented Environments",
     body: "Spaces designed to promote relaxation, wellbeing, and healthier lifestyles in nature.",
   },
@@ -50,22 +50,22 @@ const ecoRetreatFeatures = [
 
 const natureEstateFeatures = [
   {
-    icon: <Map size={20} />,
+    icon: <Map size={20} aria-hidden="true" />,
     title: "Spacious Land Parcels",
     body: "Large land plots that provide owners with space and privacy.",
   },
   {
-    icon: <Trees size={20} />,
+    icon: <Trees size={20} aria-hidden="true" />,
     title: "Tree-Lined Internal Roads",
     body: "Internal access roads designed with natural tree cover.",
   },
   {
-    icon: <Trees size={20} />,
+    icon: <Trees size={20} aria-hidden="true" />,
     title: "Preserved Green Zones",
     body: "Dedicated green areas maintained to support biodiversity.",
   },
   {
-    icon: <Mountain size={20} />,
+    icon: <Mountain size={20} aria-hidden="true" />,
     title: "Natural Terrain Integration",
     body: "Development planning that respects the natural contours and terrain of the land.",
   },
@@ -73,22 +73,22 @@ const natureEstateFeatures = [
 
 const farmlandCharacteristics = [
   {
-    icon: <Map size={20} />,
+    icon: <Map size={20} aria-hidden="true" />,
     title: "Clear-Title Farmland Parcels",
     body: "Land parcels supported by verified ownership documentation and legal clarity.",
   },
   {
-    icon: <Trees size={20} />,
+    icon: <Trees size={20} aria-hidden="true" />,
     title: "Natural Landscapes",
     body: "Farmland environments designed to preserve natural terrain and surrounding ecosystems.",
   },
   {
-    icon: <Map size={20} />,
+    icon: <Map size={20} aria-hidden="true" />,
     title: "Access Infrastructure",
     body: "Carefully planned internal access and connectivity that support land usability.",
   },
   {
-    icon: <Sprout size={20} />,
+    icon: <Sprout size={20} aria-hidden="true" />,
     title: "Long-Term Agricultural Potential",
     body: "Land suitable for sustainable agricultural use and future farming opportunities.",
   },
@@ -98,7 +98,7 @@ export default function Developments() {
     <>
       <SEO
         title="Farmland & Estate Land Developments Near Hyderabad | LA Infra"
-        description="Explore farmland investment and estate land development projects by LA Infra including Red Wood Retreats near Kamlapur, close to Hyderabad."
+        description="Explore LA Infra's farmland stewardship projects, nature estate communities, and eco-retreat developments across Telangana, Andhra Pradesh, and Karnataka — including Redwood Retreats near Kamalapur, Karnataka."
         url="https://thelainfra.com/developments"
         breadcrumbs={[{ name: "Developments", path: "/developments" }]}
         schema={{
@@ -107,11 +107,16 @@ export default function Developments() {
           name: "Red Wood Retreats",
           description:
             "Nature-inspired farmland retreat project near Kamlapur designed as a low-density nature estate.",
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: "17.8758", // Kamalapur, Karnataka approx
+            longitude: "76.8200",
+          },
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Kamlapur",
+            addressLocality: "Kamalapur",
             addressRegion: "Karnataka",
-            addressCountry: "India",
+            addressCountry: "IN",
           },
           offers: {
             "@type": "Offer",
@@ -124,13 +129,6 @@ export default function Developments() {
           },
         }}
       />
-      <BreadcrumbSchema
-        items={[
-          { name: "Home", url: "https://thelainfra.com" },
-          { name: "Developments", url: "https://thelainfra.com/developments" },
-        ]}
-      />
-
       {/* HERO */}
       <section className="relative bg-forest pt-28 pb-14 text-cream overflow-hidden">
         <GoldParticles />
@@ -148,12 +146,12 @@ export default function Developments() {
           >
             <ol className="flex items-center gap-2 text-sm font-body">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="text-cream/40 hover:text-brand-400 transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </li>
 
               <li className="text-cream/20">/</li>
@@ -254,7 +252,10 @@ export default function Developments() {
                     className="relative pl-24 group"
                   >
                     {/* icon */}
-                    <div className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-brand-500 group-hover:scale-110 transition">
+                    <div
+                      className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-brand-500 group-hover:scale-110 transition"
+                      aria-hidden="true"
+                    >
                       {item.icon}
                     </div>
 
@@ -316,7 +317,10 @@ export default function Developments() {
                   className="relative pl-24 group"
                 >
                   {/* icon */}
-                  <div className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md group-hover:shadow-lg flex items-center justify-center text-brand-500 group-hover:scale-110 transition">
+                  <div
+                    className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md group-hover:shadow-lg flex items-center justify-center text-brand-500 group-hover:scale-110 transition"
+                    aria-hidden="true"
+                  >
                     {item.icon}
                   </div>
 
@@ -383,7 +387,10 @@ export default function Developments() {
                     className="relative pl-24 group"
                   >
                     {/* icon */}
-                    <div className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-brand-500 group-hover:scale-110 transition">
+                    <div
+                      className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-brand-500 group-hover:scale-110 transition"
+                      aria-hidden="true"
+                    >
                       {item.icon}
                     </div>
 
@@ -479,8 +486,8 @@ export default function Developments() {
               <h3 className="font-display text-2xl mb-4">Redwood Retreats</h3>
 
               <p className="mb-6 leading-relaxed">
-                Red Wood Retreats is a nature-inspired land retreat located near
-                Kamlapur, approximately two hours from Hyderabad and around 30
+                Redwood Retreats is a nature-inspired land retreat located near
+                Kamalapur, approximately two hours from Hyderabad and around 30
                 km from Kalaburagi (Gulbarga).
               </p>
 

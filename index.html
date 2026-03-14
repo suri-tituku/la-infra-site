@@ -5,158 +5,182 @@
        BASIC META
        =============================== -->
     <meta charset="UTF-8" />
-
-    <!-- Mobile responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#163a2d" />
+
+    <!-- ===============================
+       FAVICONS
+       =============================== -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ===============================
+       PRIMARY SEO META
+       =============================== -->
+    <title>LA Infra — Ethical Farmland & Land Development Near Hyderabad</title>
+
+    <meta
+      name="description"
+      content="LA Infra develops premium farmland, estate plots, and sustainable land investment opportunities near Hyderabad across Telangana, Andhra Pradesh, and Karnataka. Invest in secure, transparent land assets with long-term value."
+    />
+
+    <meta
+      name="keywords"
+      content="farmland investment Hyderabad, ethical real estate Telangana, clear title farmland India, estate land development, agricultural land investment Telangana, eco land development Hyderabad"
+    />
+
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="LA Infra" />
+
+    <!-- Canonical — react-helmet-async will override per page -->
+    <link rel="canonical" href="https://thelainfra.com/" />
+
+    <!-- Sitemap -->
     <link
       rel="sitemap"
       type="application/xml"
       title="Sitemap"
       href="/sitemap.xml"
     />
-    <!-- Browser compatibility -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Geo targeting -->
+    <meta name="geo.region" content="IN-TG" />
+    <meta name="geo.placename" content="Hyderabad, Telangana" />
+    <meta name="geo.position" content="17.43148327128266;78.4078466676178" />
+    <meta name="ICBM" content="17.43148327128266, 78.4078466676178" />
+
+    <!-- Language -->
+    <link rel="alternate" hreflang="en-IN" href="https://thelainfra.com/" />
 
     <!-- ===============================
-       FAVICONS
+       OPEN GRAPH
        =============================== -->
-
-    <!-- Standard favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-
-    <!-- Apple devices -->
-    <link rel="apple-touch-icon" href="/favicon-32x32.png" />
-
-    <!-- Legacy browser favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-
-    <!-- ===============================
-       PRIMARY SEO META
-       =============================== -->
-
-    <!-- Title shown in Google results -->
-    <title>
-      LA Infra | Premium Farmland & Ethical Land Investment Near Hyderabad
-    </title>
-
-    <!-- Meta description for search engines -->
-    <meta
-      name="description"
-      content="LA Infra develops premium farmland, estate plots, and sustainable land investment opportunities near Hyderabad. Invest in secure, transparent land assets with long-term growth potential."
-    />
-
-    <!-- Keywords (less important today but still useful) -->
-    <meta
-      name="keywords"
-      content="farmland Hyderabad, land investment Hyderabad, farm plots Telangana, estate plots Hyderabad, LA Infra projects, agricultural land investment, nature estate land"
-    />
-
-    <!-- Search engine indexing -->
-    <meta name="robots" content="index, follow" />
-
-    <!-- Canonical URL to prevent duplicate SEO issues -->
-    <link rel="canonical" href="https://thelainfra.com/" />
-
-    <!-- ===============================
-       OPEN GRAPH (Facebook / LinkedIn)
-       =============================== -->
-
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LA Infra" />
+    <meta property="og:url" content="https://thelainfra.com/" />
     <meta
       property="og:title"
-      content="LA Infra | Premium Farmland & Ethical Land Investment Near Hyderabad"
+      content="LA Infra — Ethical Farmland & Land Development Near Hyderabad"
     />
-
     <meta
       property="og:description"
-      content="Explore premium farmland, estate land developments, and sustainable land investments near Hyderabad with LA Infra."
+      content="Explore premium farmland, estate land developments, and sustainable land investments near Hyderabad with LA Infra. Serving Telangana, Andhra Pradesh, and Karnataka."
     />
-
-    <meta property="og:type" content="website" />
-
-    <meta property="og:url" content="https://thelainfra.com/" />
-
-    <!-- Replace with real preview image later -->
     <meta property="og:image" content="https://thelainfra.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="LA Infra farmland developments near Hyderabad" />
+    <meta property="og:locale" content="en_IN" />
 
     <!-- ===============================
-       TWITTER CARD SEO
+       TWITTER CARD
        =============================== -->
-
     <meta name="twitter:card" content="summary_large_image" />
-
     <meta
       name="twitter:title"
-      content="LA Infra | Premium Farmland Investments Near Hyderabad"
+      content="LA Infra — Ethical Farmland & Land Development Near Hyderabad"
     />
-
     <meta
       name="twitter:description"
-      content="Invest in sustainable farmland and estate land developments near Hyderabad with LA Infra."
+      content="Invest in sustainable farmland and estate land developments near Hyderabad with LA Infra. Serving Telangana, Andhra Pradesh, and Karnataka."
     />
-
     <meta name="twitter:image" content="https://thelainfra.com/og-image.jpg" />
+    <meta name="twitter:image:alt" content="LA Infra farmland developments near Hyderabad" />
 
     <!-- ===============================
-       PERFORMANCE OPTIMIZATION
+       PERFORMANCE
        =============================== -->
 
-    <!-- Preload hero image (improves LCP) -->
+    <!-- Preconnect to external origins first -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.transparenttextures.com" />
+
+    <!-- Preload hero image for LCP -->
     <link
       rel="preload"
       as="image"
       href="/assets/images/hero/hero-farmland.webp"
       fetchpriority="high"
+      type="image/webp"
     />
-    <link rel="preconnect" href="https://www.transparenttextures.com" />
-    <!-- Preconnect to Google font servers -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Preload main fonts -->
+
+    <!-- Preload font stylesheet -->
     <link
       rel="preload"
       as="style"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap"
     />
 
-    <!-- Google Fonts -->
+    <!-- Load fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <!-- ===============================
-       STRUCTURED DATA (GOOGLE SEO)
-       Helps Google understand your business
+       FALLBACK STRUCTURED DATA
+       Only used before React hydrates.
+       react-helmet-async replaces this
+       with richer per-page schema.
        =============================== -->
-
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "RealEstateAgent",
+        "@type": ["RealEstateAgent", "LocalBusiness"],
         "name": "LA Infra",
+        "alternateName": "Laxmi Agro Infra LLP",
         "url": "https://thelainfra.com",
-        "logo": "https://thelainfra.com/logo.jpg",
-        "description": "Premium farmland and sustainable land investment opportunities near Hyderabad.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://thelainfra.com/logo.jpg",
+          "width": 200,
+          "height": 200
+        },
+        "image": "https://thelainfra.com/og-image.jpg",
+        "description": "Ethical real estate and farmland investment developments across Telangana, Andhra Pradesh, and Karnataka. Specializing in farmland ventures, nature estate communities, and eco-retreat projects.",
+        "telephone": "+919666088822",
+        "email": "info@thelainfra.com",
+        "priceRange": "₹₹₹",
+        "foundingDate": "2019",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "4th Floor, Piller 36 Square, H.No.8-2-293/82/A/481/IV-2, Road No. 36, Jubilee Hills",
           "addressLocality": "Hyderabad",
           "addressRegion": "Telangana",
-          "addressCountry": "India"
-        }
+          "postalCode": "500033",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "17.43148327128266",
+          "longitude": "78.4078466676178"
+        },
+        "hasMap": "https://maps.google.com/?q=17.43148327128266,78.4078466676178",
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ],
+        "areaServed": ["Telangana", "Andhra Pradesh", "Karnataka"],
+        "sameAs": [
+          "https://www.facebook.com/people/Thelainfra/61583035360906/",
+          "https://www.instagram.com/thelainfra/"
+        ]
       }
     </script>
+
   </head>
 
   <body class="bg-cream text-forest antialiased">
-    <!-- ===============================
-       REACT ROOT
-       =============================== -->
     <div id="root"></div>
-
-    <!-- ===============================
-       MAIN REACT ENTRY FILE
-       Defer loading for performance
-       =============================== -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

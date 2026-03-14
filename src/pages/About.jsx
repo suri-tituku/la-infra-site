@@ -2,6 +2,7 @@ import React from "react";
 import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import GoldParticles from "../components/GoldParticles";
+import { Link } from "react-router-dom";
 import { Leaf, Sprout, Trees } from "lucide-react";
 export default function About() {
   const items = [
@@ -29,6 +30,24 @@ export default function About() {
         description="Learn about LA Infra, a Hyderabad-based ethical land development company specializing in farmland investments, nature estate communities, and eco-retreat projects across Telangana, Andhra Pradesh, and Karnataka."
         url="https://thelainfra.com/about-us"
         breadcrumbs={[{ name: "About Us", path: "/about-us" }]}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About LA Infra",
+          url: "https://thelainfra.com/about-us",
+          description:
+            "LA Infra is a values-driven ethical land development company based in Hyderabad, specializing in farmland ventures, nature estate communities, and eco-retreat projects across Telangana, Andhra Pradesh, and Karnataka.",
+          about: {
+            "@type": "Organization",
+            name: "LA Infra",
+            foundingDate: "2019",
+            founder: {
+              "@type": "Person",
+              name: "K. Dayakar Reddy",
+              jobTitle: "Founder & Managing Director",
+            },
+          },
+        }}
       />
       {/* HERO */}
       <section className="relative bg-forest pt-28 pb-12 text-cream overflow-hidden">
@@ -45,12 +64,12 @@ export default function About() {
           >
             <ol className="flex items-center gap-2 text-sm font-body">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="text-cream/40 hover:text-brand-400 transition-colors"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li className="text-cream/20">/</li>
               <li className="text-cream/80 font-medium">About</li>
@@ -256,7 +275,7 @@ export default function About() {
                 transition={{ duration: 0.8, delay: i * 0.15 }}
                 className="relative pl-24 group"
               >
-                <div className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-brand-400 group-hover:scale-110 transition">
+                <div className="absolute left-0 top-1 w-14 h-14 rounded-full bg-white border border-brand-300 shadow-md flex items-center justify-center text-brand-400 group-hover:scale-110 transition" aria-hidden="true">
                   {item.icon}
                 </div>
                 <div className="bg-white/70 backdrop-blur-sm border border-brand-100 p-10 rounded-[5px] shadow-soft group-hover:shadow-xl group-hover:-translate-y-1 transition-all duration-300">
@@ -302,13 +321,12 @@ export default function About() {
             </blockquote>
 
             {/* Author */}
-            <p className="mt-8 text-sm tracking-[0.35em] text-amber-700 uppercase">
+            <cite className="mt-8 text-sm tracking-[0.35em] text-amber-700 uppercase not-italic block">
               — K. Dayakar Reddy
-            </p>
+            </cite>
             <p className="text-forest/50 text-xs tracking-wider mt-2">
               Founder & Managing Director
             </p>
-
             {/* Bottom Divider */}
             <div className="flex items-center justify-center gap-6 mt-12">
               <div className="h-[1px] w-24 bg-gradient-to-r from-transparent via-amber-400 to-transparent" />

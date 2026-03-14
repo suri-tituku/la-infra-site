@@ -10,7 +10,6 @@ export default function SEO({
   breadcrumbs = [],
   schema = null,
 }) {
-
   const fullTitle = title.includes("LA Infra") ? title : `${title} | LA Infra`;
 
   /* Organization Schema */
@@ -76,9 +75,20 @@ export default function SEO({
 
   return (
     <Helmet>
-
       {/* Title */}
       <title>{fullTitle}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content="#163a2d" />
+      <link rel="canonical" href={url} />
+      <link rel="icon" href="/favicon.ico" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="hreflang" hrefLang="en-IN" href={url} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta
+        name="twitter:image:alt"
+        content="LA Infra ethical farmland development Hyderabad"
+      />
 
       {/* Meta */}
       <meta name="description" content={description} />
@@ -114,9 +124,7 @@ export default function SEO({
       <meta name="geo.placename" content="Hyderabad, Telangana" />
 
       {/* Organization Schema */}
-      <script type="application/ld+json">
-        {JSON.stringify(orgSchema)}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
 
       {/* Website Search Schema */}
       <script type="application/ld+json">
@@ -132,11 +140,8 @@ export default function SEO({
 
       {/* Page-specific Schema */}
       {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(schema)}</script>
       )}
-
     </Helmet>
   );
 }
