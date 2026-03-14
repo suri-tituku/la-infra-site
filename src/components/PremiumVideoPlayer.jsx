@@ -228,7 +228,7 @@ const updateProgress = () => {
   <div
     ref={progressRef}
     onClick={seek}
-    className="relative h-[6px] bg-white/20 rounded-full cursor-pointer"
+  className="relative h-[6px] hover:h-[12px] transition-all duration-300 bg-white/20 rounded-full cursor-pointer"
   >
 
     {/* PROGRESS */}
@@ -244,7 +244,7 @@ const updateProgress = () => {
     >
 
       {/* MAIN KNOB */}
-      <div className="w-4 h-4 rounded-full bg-amber-400 shadow-[0_0_20px_6px_rgba(251,191,36,0.9)]"/>
+      <div className="w-4 h-4 rounded-full bg-amber-400 shadow-[0_0_18px_6px_rgba(251,191,36,0.9)] hover:shadow-[0_0_30px_10px_rgba(251,191,36,1)] transition"/>
 
       {/* PARTICLE TRAIL
       <div className="absolute -left-6 top-1/2 -translate-y-1/2 flex gap-[3px]">

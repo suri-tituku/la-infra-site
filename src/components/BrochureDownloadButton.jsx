@@ -8,14 +8,14 @@ export default function BrochureDownloadButton() {
       download
       title="Download Brochure"
       className="
-        fixed right-0 top-1/2 -translate-y-1/2 z-50
+        fixed right-0 bottom-24 z-50
         bg-brand-700 text-white
         px-3 py-4
         flex flex-col items-center gap-2
         shadow-xl
         hover:bg-brand-800
         transition-all duration-300
-        rounded-l-[5px]
+        rounded-[6px]
         group
       "
     >
