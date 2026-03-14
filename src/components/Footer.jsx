@@ -28,8 +28,8 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-4 mt-6">
             {[
-              { icon: <Facebook size={18} />, href: "#" },
-              { icon: <Instagram size={18} />, href: "#" },
+              { icon: <Facebook size={18} />, href: "https://www.facebook.com/people/Thelainfra/61583035360906/" },
+              { icon: <Instagram size={18} />, href: "https://www.instagram.com/thelainfra/" },
               { icon: <Youtube size={18} />, href: "#" },
             ].map((item, i) => (
               <a
@@ -157,7 +157,7 @@ export default function Footer() {
               Operating Regions
             </p>
             <p className="text-sm text-cream/50">
-              Telangana · Andhra Pradesh · Karnataka
+              Telangana • Andhra Pradesh • Karnataka
             </p>
           </div>
         </div>
