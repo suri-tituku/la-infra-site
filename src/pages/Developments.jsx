@@ -538,30 +538,6 @@ export default function Developments() {
           </div>
         </section>
       </main>
-
-      {/* SEO Breadcrumb Schema */}
-      <script type="application/ld+json">
-        {`
-{
- "@context": "https://schema.org",
- "@type": "BreadcrumbList",
- "itemListElement": [
-  {
-   "@type": "ListItem",
-   "position": 1,
-   "name": "Home",
-   "item": "https://www.thelainfra.com/"
-  },
-  {
-   "@type": "ListItem",
-   "position": 2,
-   "name": "Developments",
-   "item": "https://www.thelainfra.com/developments"
-  }
- ]
-}
-`}
-      </script>
     </>
   );
 }
