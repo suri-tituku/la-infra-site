@@ -158,7 +158,7 @@ const updateProgress = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-forest">
+    <section className="py-16 bg-forest">
 
       <div className="container-site">
 
