@@ -1,5 +1,5 @@
 import { Download } from "lucide-react";
-import brochure from "../assets/brochure/la-infra-brochure.pdf";
+import brochure from "../assets/brochure/la-infra-redwood-brochure.pdf";
 
 export default function BrochureDownloadButton() {
   return (

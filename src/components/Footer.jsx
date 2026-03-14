@@ -101,6 +101,7 @@ export default function Footer() {
                 />
               </svg>
               <span className="text-cream/60">
+              LA INFRA ( Laxmi Agro infra LLP)<br />
                 4th Floor, Piller, 36 Square, <br />
                 H.No.8-2-293/82/A/481/IV-2,
                 <br />

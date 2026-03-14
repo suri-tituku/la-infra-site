@@ -15,6 +15,9 @@ import kolliImg from "../assets/images/leaders/kolli-sambireddy-chairman-icon.jp
 import dayakarImg from "../assets/images/leaders/k-dayakar-reddy-founder-and-managing-director-icon.jpg";
 import RealEstateSchema from "../components/RealEstateSchema";
 import BreadcrumbSchema from "../components/BreadcrumbSchema";
+import PremiumVideoPlayer from "../components/PremiumVideoPlayer";
+import video from "../assets/videos/redwood-retreat-and-estates-mega-farm-land-project-at-kamalapur-kalburgi-karnataka.mp4";
+
 //import LandMap from "../components/LandMap"
 const trustPillars = [
   {
@@ -309,6 +312,7 @@ active:scale-95 transition-all duration-300"
         </div>
       </section>{" "}
       <StorySection />
+    <PremiumVideoPlayer src={video} />
       {/* <ProjectsGallery /> */}
       <CTABanner
         heading="Ready to Invest in Ethical Land Development?"

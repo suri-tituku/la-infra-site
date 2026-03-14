@@ -464,7 +464,7 @@ ${fields.message}
                           ),
                           label: "Office Address",
                           value:
-                            "4th Floor, Piller, 36 Square, H.No.8-2-293/82/A/481/IV-2, Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033",
+                            "LA INFRA ( Laxmi Agro infra LLP), 4th Floor, Piller, 36 Square, H.No.8-2-293/82/A/481/IV-2, Road No. 36, Jubilee Hills, Hyderabad, Telangana 500033",
                         },
                         {
                           icon: (
