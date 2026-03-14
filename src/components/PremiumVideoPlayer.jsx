@@ -234,7 +234,7 @@ const updateProgress = () => {
     {/* PROGRESS */}
     <div
       style={{ width: `${progress}%` }}
-      className="h-full rounded-full bg-gradient-to-r from-green-500 via-green-400 to-amber-400 transition-all"
+      className="h-full rounded-full bg-gradient-to-r from-green-900 via-green-400 to-amber-400 transition-all"
     />
 
     {/* GOLD COMET TRAIL */}
