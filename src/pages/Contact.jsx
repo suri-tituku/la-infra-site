@@ -567,7 +567,7 @@ ${fields.message}
                       Operating Regions
                     </p>
                     <p className="text-cream font-display text-lg font-semibold">
-                      Telangana · Andhra Pradesh · Karnataka
+                      Telangana • Andhra Pradesh • Karnataka
                     </p>
                   </div>
 
